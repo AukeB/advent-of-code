@@ -145,7 +145,7 @@ def exercise_14_1_find_fastest_reinder(
 
 @app.cell
 def _(go, px):
-    def exercise_14_plot_reindeer_distances(reindeers: dict):
+    def exercise_14_plot_reindeer_distances(reindeers: dict) -> go.Figure:  # pyright: ignore[reportInvalidTypeForm]
         """
         Plot each reindeer's distance (and points, if tracked) over time.
 
