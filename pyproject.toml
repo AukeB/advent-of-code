@@ -1,0 +1,35 @@
+[project]
+name = "template-repo"
+version = "0.1.0"
+description = "Template repository"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.12.3",
+    "pyyaml>=6.0.3",
+]
+
+[dependency-groups]
+dev = [
+    "deptry>=0.25.1",
+    "docstring-tailor>=0.4.1",
+    "pyright>=1.1.414",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.11.6",
+    "ty>=0.0.29",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.deptry]
+# "src" is imported as a first-party package in the current code.
+known_first_party = ["src"]
+
+[tool.docstring_tailor]
+line-length = 80
+style = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["ANN"]  # tests are not held to annotation rules
