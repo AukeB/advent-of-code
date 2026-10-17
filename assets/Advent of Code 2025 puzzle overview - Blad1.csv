@@ -1,0 +1,28 @@
+,,,,,,,
+,Advent of Code 2025 puzzles,,,,,,
+,,,,,,,
+,Year,Puzzle,Part,Solved?,ChatGPT used,Related to algorithm?,Description / tags
+,,,,,,,
+,2025,1,1,✅,,-,"Modular arithmatic, circular motion"
+,2025,1,2,✅,,,
+,2025,2,1,✅,,-,"Modular arithmetic, string processing, pattern matching"
+,2025,2,2,✅,,,
+,2025,3,1,✅,,-,Arithmetic
+,2025,3,2,✅,,,
+,2025,4,1,✅,,Flood fill algorithm,"Grid-based traversal, iterative propagation"
+,2025,4,2,✅,,,
+,2025,5,1,✅,,-,"Interval checking, linear scan"
+,2025,5,2,✅,,,
+,2025,6,1,✅,,-,"Matrix traversal, reverse computation, basic arithmatic"
+,2025,6,2,✅,,,
+,2025,7,1,✅,,DFS / BFS,"Tree traversal, graph simulation"
+,2025,7,2,✅,,,
+,2025,8,1,✅,,MST / Kruskal's Algorithm,"MST, graph"
+,2025,8,2,✅,,,
+,2025,9,1,✅,,Graham's scan / Jarvis march,"Geometry, grid-based analysis, convex hulls"
+,2025,9,2,✅,,,
+,2025,10,1,✅,,Simplex algorithm / Branch and Bound,"Linear algebra, linear optimization, integer linear programming"
+,2025,10,2,✅,,,
+,2025,11,1,✅,,DFS,"Graph traversal, pathfinding, directed graphs, constraint-based traversal, resursive search"
+,2025,11,2,✅,,,
+,2025,12,-,✅,✅,Bin packing / tiling problem,"Bin packing problem, polyomino fitting problem, tiling problem, backtracking, CSP"
