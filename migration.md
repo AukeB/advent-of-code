@@ -63,4 +63,6 @@ Leave the solution code as it is. The exception is formatting: running `ruff for
 | 2015 day 03 | Migrated | Part 1: 2565. Part 2: 2639 | None |
 | 2015 day 04 | Migrated | Part 1: 346386. Part 2: 9958218 | None |
 | 2015 day 05 | Migrated | Part 1: 255. Part 2: 55 | None |
+| 2015 day 06 | Migrated | Part 1: 377891. Part 2: 14110788 | Both solvers got an `else` branch that raises `ValueError` for instructions that are neither 4 nor 5 parts, so pyright can tell `action` is always set. Malformed input now fails with a clear error instead of a `NameError`. Added the `Point` namedtuple helper cell and `numpy` as a dependency. |
+| 2015 day 07 | Migrated | Part 1: 956. Part 2: 40149. Example asserts the full wire dict | `exercise_7_1_find_signal_value` return annotation changed from `dict[str, int]` to `dict[str, int \| None]` to match the dict it builds, so pyright and ty pass. The example's `print` became an assert on the expected dict. |
 | 2025 day 10 | Migrated | Part 1: 578 (both approaches). Part 1 example: 7 (both approaches). Part 2 example: 33. Part 2: 20709 | Solver sentinel changed from `float('inf')` to `sys.maxsize`; `pulp.value(variable)` replaced with `variable.value()` and a `None` check added; unused variable removed; `sys` imported in the header cell |

@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "marimo>=0.18.4",
+    "numpy>=2.3.5,<3",
     "pulp>=3.3.0,<4",
 ]
 
