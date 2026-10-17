@@ -59,4 +59,5 @@ Any other change to the solution code must be recorded in the log entry for that
 | Puzzle | Status | Answer(s) | Changes beyond the allowed edits |
 | --- | --- | --- | --- |
 | 2015 day 01 | Migrated | 232, 1783 | None |
+| 2015 day 02 | Migrated | Part 1: 1588178. Part 2: 3783758 | Part 2 function is named `exercise_2_1_find_total_feet_of_ribbon` in the source (the `2_1` should be `2_2`). Left as-is. |
 | 2025 day 10 | Migrated | Part 1: 578 (both approaches). Part 1 example: 7 (both approaches). Part 2 example: 33. Part 2: 20709 | Solver sentinel changed from `float('inf')` to `sys.maxsize`; `pulp.value(variable)` replaced with `variable.value()` and a `None` check added; unused variable removed; `sys` imported in the header cell |
