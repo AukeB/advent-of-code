@@ -14,22 +14,39 @@
   <rect width="640" height="260" fill="url(#sky)"/>
   <circle cx="320" cy="120" r="150" fill="url(#glow)"/>
 
+  <!-- Falling snow (full width) -->
+  <g fill="#ffffff" opacity="0.85">
+    <circle cx="8" cy="22" r="2.2"/>
+    <circle cx="34" cy="74" r="1.6"/>
+    <circle cx="62" cy="14" r="2.0"/>
+    <circle cx="92" cy="48" r="1.8"/>
+    <circle cx="121" cy="96" r="2.2"/>
+    <circle cx="150" cy="28" r="1.6"/>
+    <circle cx="183" cy="66" r="2.0"/>
+    <circle cx="214" cy="12" r="1.8"/>
+    <circle cx="246" cy="104" r="2.2"/>
+    <circle cx="279" cy="40" r="1.6"/>
+    <circle cx="311" cy="78" r="2.0"/>
+    <circle cx="343" cy="18" r="1.8"/>
+    <circle cx="374" cy="58" r="2.2"/>
+    <circle cx="405" cy="110" r="1.6"/>
+    <circle cx="436" cy="26" r="2.0"/>
+    <circle cx="468" cy="84" r="1.8"/>
+    <circle cx="499" cy="14" r="2.2"/>
+    <circle cx="530" cy="62" r="1.6"/>
+    <circle cx="561" cy="102" r="2.0"/>
+    <circle cx="592" cy="34" r="1.8"/>
+    <circle cx="618" cy="76" r="2.2"/>
+    <circle cx="634" cy="18" r="1.6"/>
+    <circle cx="22" cy="120" r="1.6"/>
+    <circle cx="472" cy="136" r="1.4"/>
+    <circle cx="276" cy="138" r="1.4"/>
+  </g>
+
   <g transform="translate(320 90) scale(0.85) translate(-320 -117)">
   <!-- Snowy ground -->
   <path d="M0 215 Q160 195 320 212 T640 205 L640 260 L0 260 Z" fill="#e8f1f8"/>
 
-  <!-- Falling snow -->
-  <g fill="#ffffff" opacity="0.85">
-    <circle cx="60" cy="40" r="2.5"/>
-    <circle cx="110" cy="90" r="2"/>
-    <circle cx="180" cy="30" r="2.5"/>
-    <circle cx="230" cy="150" r="2"/>
-    <circle cx="420" cy="50" r="2.5"/>
-    <circle cx="470" cy="110" r="2"/>
-    <circle cx="540" cy="35" r="2.5"/>
-    <circle cx="590" cy="150" r="2"/>
-    <circle cx="610" cy="75" r="2"/>
-  </g>
 
   <!-- Tree -->
   <g>
