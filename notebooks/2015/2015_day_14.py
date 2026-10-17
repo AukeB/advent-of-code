@@ -239,8 +239,9 @@ def _(exercise_14_1_find_fastest_reinder, read_data):
 
 @app.cell
 def _(exercise_14_plot_reindeer_distances, reindeers_14_1):
-    exercise_14_plot_reindeer_distances(reindeers=reindeers_14_1)
-    return
+    figure_14_1 = exercise_14_plot_reindeer_distances(reindeers=reindeers_14_1)
+
+    figure_14_1  # pyright: ignore[reportUnusedExpression]
 
 
 @app.cell(hide_code=True)
@@ -368,8 +369,9 @@ def _(exercise_14_2_find_fastest_reindeer, reindeer_descriptions: list[str]):
 
 @app.cell
 def _(exercise_14_plot_reindeer_distances, reindeers_14_2):
-    exercise_14_plot_reindeer_distances(reindeers=reindeers_14_2)
-    return
+    figure_14_2 = exercise_14_plot_reindeer_distances(reindeers=reindeers_14_2)
+
+    figure_14_2  # pyright: ignore[reportUnusedExpression]
 
 
 if __name__ == "__main__":
