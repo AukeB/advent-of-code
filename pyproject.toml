@@ -29,4 +29,5 @@ style = "google"
 exclude = ["**/*.ipynb"]
 
 [tool.ruff]
-extend-exclude = ["*.ipynb"]
+extend-exclude = ["*.ipynb", "notebooks/template.py"]
+force-exclude = true
