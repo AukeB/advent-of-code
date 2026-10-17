@@ -22,13 +22,15 @@ def _(mo):
 
 @app.cell
 def _():
+    import base64
+
     import marimo as mo
     import plotly.graph_objects as go
     import plotly.express as px
 
     from aoc.utils import read_data
 
-    return go, mo, px, read_data
+    return base64, go, mo, px, read_data
 
 
 @app.cell(hide_code=True)
@@ -242,6 +244,14 @@ def _(exercise_14_plot_reindeer_distances, reindeers_14_1):
     figure_14_1 = exercise_14_plot_reindeer_distances(reindeers=reindeers_14_1)
 
     figure_14_1  # pyright: ignore[reportUnusedExpression]
+    return (figure_14_1,)
+
+
+@app.cell
+def _(base64, figure_14_1, mo):
+    encoded_figure_14_1 = base64.b64encode(figure_14_1.to_image(format="png")).decode()
+
+    mo.md(f"![Reindeer distances](data:image/png;base64,{encoded_figure_14_1})")  # pyright: ignore[reportUnusedExpression]
 
 
 @app.cell(hide_code=True)
@@ -372,6 +382,14 @@ def _(exercise_14_plot_reindeer_distances, reindeers_14_2):
     figure_14_2 = exercise_14_plot_reindeer_distances(reindeers=reindeers_14_2)
 
     figure_14_2  # pyright: ignore[reportUnusedExpression]
+    return (figure_14_2,)
+
+
+@app.cell
+def _(base64, figure_14_2, mo):
+    encoded_figure_14_2 = base64.b64encode(figure_14_2.to_image(format="png")).decode()
+
+    mo.md(f"![Reindeer distances](data:image/png;base64,{encoded_figure_14_2})")  # pyright: ignore[reportUnusedExpression]
 
 
 if __name__ == "__main__":
