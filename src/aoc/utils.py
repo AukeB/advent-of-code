@@ -1,7 +1,7 @@
 """Utility module for solving Advent of Code puzzles.
 
-This module contains utility functions that are used throughout all Advent of
-Code puzzles.
+The only helper function currently in this module is read_data, which loads
+puzzle input. It works for all puzzles that have solutions in this repo.
 """
 
 
@@ -35,26 +35,3 @@ def read_data(file_path: str, separator: str) -> str | list[str]:
         return data[0]
 
     return data
-
-
-def convert_string_to_list_of_tuples(str_data: str) -> list[tuple[int]]:
-    """Convert a string representation of tuples into a list of integer tuples.
-
-    Each tuple in the string should be enclosed in parentheses and separated by
-    spaces. Elements within a tuple should be comma-separated integers.
-
-    Args:
-        str_data (str): The str data representing one or more tuples.
-
-    Returns:
-        list[tuple[int]]: The same data but now with the correct variable types.
-    """
-    list_of_tuples = []
-    data_split = str_data.split(" ")
-
-    for element in data_split:
-        sub_list_elements = element[1:-1].split(",")
-        sub_list_elements = [int(number) for number in sub_list_elements]
-        list_of_tuples.append(tuple(sub_list_elements))
-
-    return list_of_tuples
