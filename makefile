@@ -26,10 +26,16 @@ ty:
 	uv run ty check $(PROJECT_NAME)
 	@echo "🔍 Successfully executed ty."
 
-# Export every marimo notebook to a Jupyter notebook next to it
+# Export every marimo notebook to a Jupyter notebook next to it, skipping notebooks that already have one
 ipynb:
 	for nb in notebooks/*/*.py; do \
-		uv run marimo export ipynb "$$nb" -o "$${nb%.py}.ipynb" --include-outputs --sort top-down -f; \
+		out="$${nb%.py}.ipynb"; \
+		if [ -e "$$out" ]; then \
+			:; \
+		else \
+			echo "Exporting $$nb to $$out"; \
+			uv run marimo export ipynb "$$nb" -o "$$out" --include-outputs --sort top-down; \
+		fi; \
 	done
 	@echo "📓 Successfully exported notebooks to ipynb."
 
