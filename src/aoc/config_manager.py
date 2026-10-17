@@ -4,8 +4,8 @@ import yaml
 
 from pathlib import Path
 
-from src.my_project.constants import CONFIG_PATH
-from src.my_project.config_model import ConfigModel
+from src.aoc.constants import CONFIG_PATH
+from src.aoc.config_model import ConfigModel
 
 
 class ConfigManager:

@@ -1,6 +1,6 @@
 # Agent instructions
 
-`my_project` in these instructions is a placeholder for the project's package name, so that this file can stay generic and project-agnostic.
+`aoc` in these instructions is a placeholder for the project's package name, so that this file can stay generic and project-agnostic.
 
 ## Commands
 - Install dependencies: `uv sync`
@@ -11,7 +11,7 @@
 ## Code conventions
 
 ### Imports and naming
-- Use absolute imports from the package root, e.g. `from my_project.constants import ...`.
+- Use absolute imports from the package root, e.g. `from aoc.constants import ...`.
 - Prefix private functions, methods, attributes, and variables with a single underscore. Leave them unprefixed only when they are part of the public API or are used by other modules.
 
 ### Modules
@@ -68,7 +68,7 @@
 - Keep tokens in memory only. Do not write them to disk or log them.
 
 ## Configuration conventions
-- `config.yaml` is the source of truth for the layout. `src/my_project/config/config_model.py` mirrors it exactly.
+- `config.yaml` is the source of truth for the layout. `src/aoc/config/config_model.py` mirrors it exactly.
 - Each top-level YAML section is one Pydantic model, defined as an inner class of `ConfigModel`. Nested YAML sections become nested inner classes of their parent model, so the nesting in the code matches the nesting in the file.
 - Fields are declared in the same order as the keys in the YAML file. Put the inner classes first, then the fields, following the same order.
 - Every config model inherits from `ConfiguredBaseModel` so unknown keys fail at load time.
@@ -96,7 +96,7 @@ features:
 ```
 
 ## Testing conventions
-- Mirror the structure of `src/` in `tests/`. For example, `src/my_project/utils/text.py` is tested in `tests/my_project/utils/test_text.py`. Every test file name starts with `test_`.
+- Mirror the structure of `src/` in `tests/`. For example, `src/aoc/utils/text.py` is tested in `tests/aoc/utils/test_text.py`. Every test file name starts with `test_`.
 - In test files, separate the tests of different functions with a comment, with two blank lines above and below it. Use one of these forms:
   - `# Testing the "my_function_name" function.`
   - `# Testing the "my_method_name" method from the "MyClass" class.`
