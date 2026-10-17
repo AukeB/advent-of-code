@@ -59,6 +59,7 @@ all:
 	make format-docstrings
 	make pyright
 	make ty
+	make ipynb
 	make clean
 	make git
 	@echo "⚡ Successfully executed all tasks."
