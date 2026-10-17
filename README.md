@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/advent-of-code.svg" alt="A cozy winter night with a glowing Christmas tree, a star, a mug of cocoa and falling snow" width="640">
+  <img src="assets/advent-of-code.svg" alt="A cozy winter night with a glowing Christmas tree, a star, a mug of cocoa and falling snow" width="100%">
 </p>
 
 # Advent of Code
@@ -28,6 +28,8 @@ To open a specific notebook, pass its path:
 ```
 uv run marimo edit notebooks/2015/2015_day_01.py
 ```
+
+marimo is the development format. Each notebook is also exported to a Jupyter notebook (`.ipynb`) next to it, so the code can be read in the browser. GitHub's `.ipynb` preview makes the code easier to inspect than the marimo `.py` files.
 
 ## Puzzle overview
 
