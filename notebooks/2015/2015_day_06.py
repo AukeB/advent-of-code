@@ -89,16 +89,17 @@ def _(Point, np):
     def exercise_6_1_find_number_of_lit_lights(
         instruction_data: list[str],
     ) -> int:
-        """
-        Count how many lights are lit in a 1000x1000 grid after following Santa's instructions.
+        """Count how many lights are lit in a 1000x1000 grid after following
+        Santa's instructions.
 
         Each instruction either turns on, turns off, or toggles a rectangular
         region of lights defined by two corner coordinates. The grid starts with
-        all lights off and is updated for each instruction using NumPy array slicing.
+        all lights off and is updated for each instruction using NumPy array
+        slicing.
 
         Args:
-            instruction_data (list[str]): A list of instructions, each describing
-                an action and two corner coordinates of a rectangle.
+            instruction_data (list[str]): A list of instructions, each
+                describing an action and two corner coordinates of a rectangle.
 
         Returns:
             int: The total number of lights that are lit after all instructions
@@ -191,26 +192,28 @@ def _(Point, np):
     def exercise_6_2_find_number_of_lit_lights(
         instruction_data: list[str],
     ) -> int:
-        """
-        Calculate the total brightness of all lights in a 1000x1000 grid after
-        following Santa's updated brightness instructions.
+        """Calculate the total brightness of all lights in a 1000x1000 grid
+        after following Santa's updated brightness instructions.
 
-        Each instruction adjusts the brightness of a rectangular region of lights
-        defined by two corner coordinates. The grid starts with all lights at zero
-        brightness and is updated for each instruction using NumPy array slicing.
+        Each instruction adjusts the brightness of a rectangular region of
+        lights defined by two corner coordinates. The grid starts with all
+        lights at zero brightness and is updated for each instruction using
+        NumPy array slicing.
 
         The brightness rules are as follows:
-        - "turn on" increases the brightness of each light in the rectangle by 1.
-        - "turn off" decreases the brightness of each light by 1, with a minimum of 0.
+        - "turn on" increases the brightness of each light in the rectangle by
+          1.
+        - "turn off" decreases the brightness of each light by 1, with a minimum
+          of 0.
         - "toggle" increases the brightness of each light in the rectangle by 2.
 
         Args:
-            instruction_data (list[str]): A list of instructions, each describing
-                an action and two corner coordinates of a rectangle.
+            instruction_data (list[str]): A list of instructions, each
+                describing an action and two corner coordinates of a rectangle.
 
         Returns:
-            int: The total brightness of all lights after all instructions
-                have been applied.
+            int: The total brightness of all lights after all instructions have
+                been applied.
         """
         grid_size: int = 1000
         grid_of_lights = np.zeros((grid_size, grid_size), dtype=int)

@@ -93,8 +93,7 @@ def _(mo):
 
 @app.function
 def exercise_6_1_help_with_math_homework(math_homework: list[str]) -> int:
-    """
-    Parses and solves a horizontally unrolled cephalopod math worksheet.
+    """Parses and solves a horizontally unrolled cephalopod math worksheet.
 
     Each column in the input represents one math problem. A problem consists of
     several numbers stacked vertically, with either '+' or '*' at the bottom
@@ -105,10 +104,9 @@ def exercise_6_1_help_with_math_homework(math_homework: list[str]) -> int:
     row into meaningful tokens (integers or operators), then processes the grid
     column by column.
 
-    For each column:
-      - Read upward to collect all numbers.
-      - Read the bottom cell to determine whether to sum or multiply them.
-      - Compute the column’s result.
+    For each column: - Read upward to collect all numbers. - Read the bottom
+    cell to determine whether to sum or multiply them. - Compute the column’s
+    result.
 
     The final answer is the sum of all individual column results.
 
@@ -116,8 +114,9 @@ def exercise_6_1_help_with_math_homework(math_homework: list[str]) -> int:
         math_homework (list[str]): The raw worksheet input, where each string is
             one row of the printed cephalopod homework.
 
-    Returns
-        int: The grand total: the sum of the results of all column-wise problems.
+    Returns:
+        int: The grand total: the sum of the results of all column-wise
+            problems.
     """
     mult_and_add_matrix = []
 
@@ -242,13 +241,13 @@ def _(mo):
 
 @app.function
 def exercise_6_2_help_with_math_homework(math_homework: list[str]) -> int:
-    """
-    Compute the grand total of all cephalopod math problems read right-to-left.
+    """Compute the grand total of all cephalopod math problems read right-to-
+    left.
 
     Each puzzle row represents part of a very wide worksheet where multiple
     vertical math problems are arranged side-by-side. In cephalopod math,
-    numbers are written top-to-bottom with the most significant digit first,
-    and entire problems are read right-to-left, one column at a time.
+    numbers are written top-to-bottom with the most significant digit first, and
+    entire problems are read right-to-left, one column at a time.
 
     This function processes the worksheet by:
 

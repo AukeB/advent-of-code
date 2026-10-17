@@ -94,20 +94,22 @@ def exercise_3_1_find_largest_joltage(
     joltage_ratings: list[str],
     num_batteries: int = 2,
 ) -> int:
-    """
-    Calculates the total maximum joltage that can be produced across all banks of batteries.
+    """Calculates the total maximum joltage that can be produced across all
+    banks of batteries.
 
-    This function processes a list of battery banks, where each bank contains battery joltage ratings
-    as a string of digits. For each bank, it identifies the largest possible joltage that can be produced
-    by turning on a specified number of batteries (default is 2). The joltage for a bank is determined by
-    forming a number using the digits of the selected batteries in the order they appear. The function
-    sums the maximum joltage from all banks to calculate the total output.
+    This function processes a list of battery banks, where each bank contains
+    battery joltage ratings as a string of digits. For each bank, it identifies
+    the largest possible joltage that can be produced by turning on a specified
+    number of batteries (default is 2). The joltage for a bank is determined by
+    forming a number using the digits of the selected batteries in the order
+    they appear. The function sums the maximum joltage from all banks to
+    calculate the total output.
 
     Args:
-        joltage_ratings (list[str]): A list of strings, where each string represents the joltage ratings
-            of batteries in a single bank.
-        num_batteries (int, optional): The number of batteries to turn on in each bank to maximize
-            the joltage. Defaults to 2.
+        joltage_ratings (list[str]): A list of strings, where each string
+            represents the joltage ratings of batteries in a single bank.
+        num_batteries (int, optional): The number of batteries to turn on in
+            each bank to maximize the joltage. Defaults to 2.
 
     Returns:
         int: The total maximum joltage produced across all banks.
@@ -223,23 +225,26 @@ def exercise_3_2_find_largest_joltage(
     joltage_ratings: list[str],
     num_batteries: int = 12,
 ) -> int:
-    """
-    Calculates the total maximum joltage that can be produced across all banks of batteries using a larger number of batteries.
+    """Calculates the total maximum joltage that can be produced across all
+    banks of batteries using a larger number of batteries.
 
-    This function processes a list of battery banks, where each bank contains battery joltage ratings
-    as a string of digits. For each bank, it identifies the largest possible joltage that can be produced
-    by turning on a specified number of batteries (default is 12). The joltage for a bank is determined by
-    forming a number using the digits of the selected batteries in the order they appear. The function
-    sums the maximum joltage from all banks to calculate the total output.
+    This function processes a list of battery banks, where each bank contains
+    battery joltage ratings as a string of digits. For each bank, it identifies
+    the largest possible joltage that can be produced by turning on a specified
+    number of batteries (default is 12). The joltage for a bank is determined by
+    forming a number using the digits of the selected batteries in the order
+    they appear. The function sums the maximum joltage from all banks to
+    calculate the total output.
 
     Args:
-        joltage_ratings (list[str]): A list of strings, where each string represents the joltage ratings
-            of batteries in a single bank.
-        num_batteries (int, optional): The number of batteries to turn on in each bank to maximize
-            the joltage. Defaults to 12.
+        joltage_ratings (list[str]): A list of strings, where each string
+            represents the joltage ratings of batteries in a single bank.
+        num_batteries (int, optional): The number of batteries to turn on in
+            each bank to maximize the joltage. Defaults to 12.
 
     Returns:
-        int: The total maximum joltage produced across all banks using the specified number of batteries.
+        int: The total maximum joltage produced across all banks using the
+            specified number of batteries.
     """
     total_joltage_over_all_banks = 0
 

@@ -118,18 +118,18 @@ def exercise_1_1_find_exact_zeros(
     rotation_data: list[str],
     start_position: int = 50,
 ) -> int:
-    """
-    Simulate safe dial rotations and count how many times the dial lands on zero.
+    """Simulate safe dial rotations and count how many times the dial lands on
+    zero.
 
     The dial is rotated one click at a time. It wraps around from 99 to 0 and
     from 0 to 99. The count increases each time the dial ends a rotation
     pointing at zero.
 
     Args:
-        rotation_data (list[str]): List of rotation instructions, each starting with 'L'
-            or 'R' followed by an integer number of clicks.
-        start_position (int): Starting value on the dial, between 0 and 99. Defaults
-            to 50.
+        rotation_data (list[str]): List of rotation instructions, each starting
+            with 'L' or 'R' followed by an integer number of clicks.
+        start_position (int): Starting value on the dial, between 0 and 99.
+            Defaults to 50.
 
     Returns:
         int: The number of times the dial ends a rotation pointing at zero.
@@ -240,8 +240,7 @@ def exercise_1_2_count_zero_clicks(
     rotation_data: list[str],
     start_position: int = 50,
 ) -> int:
-    """
-    Count how many times the dial points at zero during the given rotations.
+    """Count how many times the dial points at zero during the given rotations.
 
     The dial moves one click at a time. Each instruction starts with 'L' or 'R'
     followed by an integer indicating how many clicks to rotate. The dial wraps
@@ -249,14 +248,15 @@ def exercise_1_2_count_zero_clicks(
     click causes the dial to land on zero.
 
     Args:
-        rotation_data (list[str]): List of rotation instructions as strings. Each has a
-            direction character ('L' or 'R') followed by an integer number of
-            clicks.
-        start_position (int): Starting value on the dial, between 0 and 99. Defaults
-            to 50.
+        rotation_data (list[str]): List of rotation instructions as strings.
+            Each has a direction character ('L' or 'R') followed by an integer
+            number of clicks.
+        start_position (int): Starting value on the dial, between 0 and 99.
+            Defaults to 50.
 
     Returns:
-        int: The total number of times any click causes the dial to land on zero.
+        int: The total number of times any click causes the dial to land on
+            zero.
     """
     current_position = start_position
     zero_counter = 0

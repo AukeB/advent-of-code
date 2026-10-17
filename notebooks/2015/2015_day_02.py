@@ -74,12 +74,11 @@ def _(mo):
 def exercise_2_1_find_total_square_feet_wrapping_paper(
     present_dimensions: list[str],
 ) -> int:
-    """
-    Calculate total wrapping paper needed for a list of box dimensions.
+    """Calculate total wrapping paper needed for a list of box dimensions.
 
     Each dimension string is formatted as "LxWxH". For every present, the
-    required paper equals its surface area plus the area of its smallest
-    side. Surface area is computed as 2*l*w + 2*w*h + 2*h*l.
+    required paper equals its surface area plus the area of its smallest side.
+    Surface area is computed as 2*l*w + 2*w*h + 2*h*l.
 
     Args:
         present_dimensions (list[str]): List of box dimensions.
@@ -151,12 +150,10 @@ def _(mo):
 
 @app.function
 def exercise_2_2_find_total_feet_of_ribbon(present_dimensions: list[str]) -> int:
-    """
-    Calculate total ribbon needed for a list of box dimensions.
+    """Calculate total ribbon needed for a list of box dimensions.
 
-    Each dimension string is formatted as "LxWxH". Ribbon needed equals
-    the smallest perimeter of any face plus the volume of the box for
-    the bow.
+    Each dimension string is formatted as "LxWxH". Ribbon needed equals the
+    smallest perimeter of any face plus the volume of the box for the bow.
 
     Args:
         present_dimensions (list[str]): List of box dimensions.

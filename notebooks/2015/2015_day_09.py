@@ -92,16 +92,18 @@ def _(mo):
 @app.cell
 def _(np, permutations):
     def exercise_9_1_find_shortest_route(distances: list[str]) -> int:
-        """
-        Find the shortest route that visits every location exactly once using brute force.
+        """Find the shortest route that visits every location exactly once using
+        brute force.
 
         1. Extract all unique locations and map them to matrix indices.
         2. Build a symmetric distance matrix from the parsed input.
-        3. Enumerate all possible routes via permutations and track the shortest.
+        3. Enumerate all possible routes via permutations and track the
+           shortest.
 
         Args:
             distances (list[str]): Each line describes a distance in the format
-                'A to B = N', where A and B are location names and N is the distance.
+                'A to B = N', where A and B are location names and N is the
+                distance.
 
         Returns:
             shortest_route (int): The total distance of the shortest route that
@@ -192,8 +194,8 @@ def _(mo):
 @app.cell
 def _(np, permutations):
     def exercise_9_2_find_longest_route(distances: list[str]) -> int:
-        """
-        Find the longest route that visits every location exactly once using brute force.
+        """Find the longest route that visits every location exactly once using
+        brute force.
 
         1. Extract all unique locations and map them to matrix indices.
         2. Build a symmetric distance matrix from the parsed input.
@@ -201,7 +203,8 @@ def _(np, permutations):
 
         Args:
             distances (list[str]): Each line describes a distance in the format
-                'A to B = N', where A and B are location names and N is the distance.
+                'A to B = N', where A and B are location names and N is the
+                distance.
 
         Returns:
             longest_route (int): The total distance of the longest route that

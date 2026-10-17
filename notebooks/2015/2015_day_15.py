@@ -95,7 +95,9 @@ def _(mo):
 def _(dataclass):
     @dataclass
     class Ingredient:
-        """Properties of a single cookie ingredient, as given in the puzzle input."""
+        """Properties of a single cookie ingredient, as given in the puzzle
+        input.
+        """
 
         name: str
         capacity: int
@@ -112,25 +114,27 @@ def _(Ingredient):
     def exercise_15_1_find_optimal_ingredient_distribution(
         ingredients_and_properties: list[str], total_number_of_teaspoons: int = 100
     ) -> tuple[str, int]:
-        """
-        Finds the highest cookie score achievable by splitting a fixed number of
-        teaspoons across four ingredients, along with the recipe that achieves it.
+        """Finds the highest cookie score achievable by splitting a fixed number
+        of teaspoons across four ingredients, along with the recipe that
+        achieves it.
 
         1. Parse each input line into an `Ingredient`.
-        2. Enumerate every distribution of teaspoons with three nested loops, where
-           the fourth amount is simply the leftover.
+        2. Enumerate every distribution of teaspoons with three nested loops,
+           where the fourth amount is simply the leftover.
         3. Compute each property total (clamped at zero) and multiply the totals
            into a score.
         4. Keep track of the highest score seen and the recipe that produced it.
 
         Args:
             ingredients_and_properties (list[str]): Raw puzzle input lines, one
-                ingredient per line, e.g. "Sugar: capacity 3, durability 0, ...".
+                ingredient per line, e.g. "Sugar: capacity 3, durability 0,
+                ...".
             total_number_of_teaspoons (int): Total number of teaspoons to
                 distribute. Defaults to 100.
+
         Returns:
-            recipe (str): Human-readable description of the best distribution, e.g.
-                "44 Sugar, 56 Sprinkles, 0 Candy, 0 Chocolate". Empty if no
+            recipe (str): Human-readable description of the best distribution,
+                e.g. "44 Sugar, 56 Sprinkles, 0 Candy, 0 Chocolate". Empty if no
                 distribution scores above zero.
             highest_score (int): The best score over all valid distributions.
         """
@@ -268,31 +272,31 @@ def _(Ingredient):
         total_number_of_teaspoons: int = 100,
         calorie_constraint: int = 500,
     ) -> tuple[str, int]:
-        """
-        Finds the highest cookie score achievable by splitting a fixed number of
-        teaspoons across four ingredients such that the cookie has an exact calorie
-        count, along with the recipe that achieves it.
+        """Finds the highest cookie score achievable by splitting a fixed number
+        of teaspoons across four ingredients such that the cookie has an exact
+        calorie count, along with the recipe that achieves it.
 
         1. Parse each input line into an `Ingredient`.
-        2. Enumerate every distribution of teaspoons with three nested loops, where
-           the fourth amount is simply the leftover.
-        3. Compute the total calories and skip distributions that do not match the
-           calorie constraint.
-        4. Compute each remaining property total (clamped at zero) and multiply the
-           totals into a score.
+        2. Enumerate every distribution of teaspoons with three nested loops,
+           where the fourth amount is simply the leftover.
+        3. Compute the total calories and skip distributions that do not match
+           the calorie constraint.
+        4. Compute each remaining property total (clamped at zero) and multiply
+           the totals into a score.
         5. Keep track of the highest score seen and the recipe that produced it.
 
         Args:
             ingredients_and_properties (list[str]): Raw puzzle input lines, one
-                ingredient per line, e.g. "Sugar: capacity 3, durability 0, ...".
+                ingredient per line, e.g. "Sugar: capacity 3, durability 0,
+                ...".
             total_number_of_teaspoons (int): Total number of teaspoons to
                 distribute. Defaults to 100.
             calorie_constraint (int): Exact total calorie count the cookie must
                 have. Defaults to 500.
 
         Returns:
-            recipe (str): Human-readable description of the best distribution, e.g.
-                "40 Sugar, 60 Sprinkles, 0 Candy, 0 Chocolate". Empty if no
+            recipe (str): Human-readable description of the best distribution,
+                e.g. "40 Sugar, 60 Sprinkles, 0 Candy, 0 Chocolate". Empty if no
                 distribution satisfies the calorie constraint with a score above
                 zero.
             highest_score (int): The best score over all distributions that meet

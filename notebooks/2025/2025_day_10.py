@@ -113,18 +113,16 @@ def _(mo):
 
 @app.function
 def convert_string_to_list_of_tuples(str_data: str) -> list[tuple[int]]:
-    """
-    Convert a string representation of tuples into a list of integer tuples.
+    """Convert a string representation of tuples into a list of integer tuples.
 
-    Each tuple in the string should be enclosed in parentheses and separated
-    by spaces. Elements within a tuple should be comma-separated integers.
+    Each tuple in the string should be enclosed in parentheses and separated by
+    spaces. Elements within a tuple should be comma-separated integers.
 
     Args:
         str_data (str): The str data representing one or more tuples.
 
     Returns:
-        list[tuple[int]]: The same data but now with the correct variable
-            types.
+        list[tuple[int]]: The same data but now with the correct variable types.
     """
     list_of_tuples = []
     data_split = str_data.split(" ")
@@ -140,24 +138,23 @@ def convert_string_to_list_of_tuples(str_data: str) -> list[tuple[int]]:
 @app.cell
 def _(sys):
     def exercise_10_1_find_minimal_button_presses(manual: list[str]) -> int:
-        """
-        Compute the minimal number of button presses required for a list of
+        """Compute the minimal number of button presses required for a list of
         machines described in a manual.
 
         Each machine description contains an indicator light diagram and a
-        button wiring schematic. The function tries all possible combinations
-        of button presses to find the minimal number that achieves the target
-        light configuration.
+        button wiring schematic. The function tries all possible combinations of
+        button presses to find the minimal number that achieves the target light
+        configuration.
 
         Args:
             manual (list[str]): A list of strings, each representing a machine.
-                Each string has the format "[lights] (buttons)" where lights
-                are '#' for on and '.' for off, and buttons are tuples of
-                light indices they toggle.
+                Each string has the format "[lights] (buttons)" where lights are
+                '#' for on and '.' for off, and buttons are tuples of light
+                indices they toggle.
 
         Returns:
-            int: The sum of the minimal number of button presses needed for
-                all machines in the manual.
+            int: The sum of the minimal number of button presses needed for all
+                machines in the manual.
         """
         total_button_press_counter: int = 0
 
@@ -235,25 +232,23 @@ def _(sys):
     def exercise_10_1_find_minimal_button_presses_binary_approach(
         manual: list[str],
     ) -> int:
-        """
-        Compute the minimal number of button presses required for a list of
+        """Compute the minimal number of button presses required for a list of
         machines using a binary/bitmask approach.
 
         Each machine description contains an indicator light diagram and a
-        button wiring schematic. The function iterates over all possible
-        button press combinations using binary numbers to efficiently
-        determine the minimal number of presses that achieve the target
-        light configuration.
+        button wiring schematic. The function iterates over all possible button
+        press combinations using binary numbers to efficiently determine the
+        minimal number of presses that achieve the target light configuration.
 
         Args:
             manual (list[str]): A list of strings, each representing a machine.
-                Each string has the format "[lights] (buttons)" where lights
-                are '#' for on and '.' for off, and buttons are tuples of
-                light indices they toggle.
+                Each string has the format "[lights] (buttons)" where lights are
+                '#' for on and '.' for off, and buttons are tuples of light
+                indices they toggle.
 
         Returns:
-            int: The sum of the minimal number of button presses needed for
-                all machines in the manual.
+            int: The sum of the minimal number of button presses needed for all
+                machines in the manual.
         """
         total_button_press_counter: int = 0
 
@@ -412,33 +407,33 @@ def _(mo):
 @app.cell
 def _(pulp):
     def exercise_10_2_find_minimal_button_presses(manual: list[str]) -> int:
-        """
-        Compute the minimal total number of button presses to reach target states for all
-        machines in the manual using integer linear programming.
+        """Compute the minimal total number of button presses to reach target
+        states for all machines in the manual using integer linear programming.
 
         Each machine description must include:
-        1. Indicator light diagram (e.g., '[#..#]') where '#' indicates a target light.
-        2. Button wiring schematic (e.g., '(0,1) (2,3)') showing which lights each button
-           affects.
-        3. Target joltage levels (e.g., '1,0,1,0') representing the desired state of each
+        1. Indicator light diagram (e.g., '[#..#]') where '#' indicates a target
            light.
+        2. Button wiring schematic (e.g., '(0,1) (2,3)') showing which lights
+           each button affects.
+        3. Target joltage levels (e.g., '1,0,1,0') representing the desired
+           state of each light.
 
-        The function uses PuLP's CBC solver to determine the minimal number of presses per
-        machine and sums them for all machines.
+        The function uses PuLP's CBC solver to determine the minimal number of
+        presses per machine and sums them for all machines.
 
-        For each machine:
-          - Parse the description to extract lights, buttons, and target states.
-          - Build a coefficient matrix where matrix[i][j] = 1 if button j affects light i.
-          - Define integer variables for button presses.
-          - Minimize the sum of button presses while satisfying the target state constraints.
-          - Solve the ILP with CBC.
-          - Accumulate the total minimal presses.
+        For each machine: - Parse the description to extract lights, buttons,
+        and target states. - Build a coefficient matrix where matrix[i][j] = 1
+        if button j affects light i. - Define integer variables for button
+        presses. - Minimize the sum of button presses while satisfying the
+        target state constraints. - Solve the ILP with CBC. - Accumulate the
+        total minimal presses.
 
         Args:
             manual (list[str]): List of machine descriptions as strings.
 
         Returns:
-            int: Total minimal number of button presses required across all machines.
+            int: Total minimal number of button presses required across all
+                machines.
         """
 
         total_button_press_counter: int = 0

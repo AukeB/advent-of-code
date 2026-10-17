@@ -120,14 +120,13 @@ def _(Counter):
         junction_positions: list[str],
         number_of_connections: int,
     ) -> int:
-        """
-        Connects junction boxes based on closest distances and computes the product
-        of the sizes of the three largest resulting circuits.
+        """Connects junction boxes based on closest distances and computes the
+        product of the sizes of the three largest resulting circuits.
 
-        Each junction box is represented by 3D coordinates. The function finds the
-        specified number of closest junction pairs, merges them into circuits, and
-        keeps track of connected components. After processing, it multiplies the
-        sizes of the three largest circuits.
+        Each junction box is represented by 3D coordinates. The function finds
+        the specified number of closest junction pairs, merges them into
+        circuits, and keeps track of connected components. After processing, it
+        multiplies the sizes of the three largest circuits.
 
         Args:
             junction_positions (list[str]): List of junction positions as comma-
@@ -303,9 +302,8 @@ def _(mo):
 def exercise_8_2_merge_until_one_chain(
     junction_positions: list[str],
 ) -> int:
-    """
-    Connects junction boxes until all boxes form a single circuit, then returns
-    the product of the X coordinates of the last two boxes connected.
+    """Connects junction boxes until all boxes form a single circuit, then
+    returns the product of the X coordinates of the last two boxes connected.
 
     Each junction box is represented by 3D coordinates. The function repeatedly
     connects the closest unconnected pairs and merges their chains. Once all
@@ -317,8 +315,8 @@ def exercise_8_2_merge_until_one_chain(
             separated strings "X,Y,Z".
 
     Returns:
-        int: Product of the X coordinates of the last two junctions merged
-            to form a single circuit.
+        int: Product of the X coordinates of the last two junctions merged to
+            form a single circuit.
     """
     junction_coordinates = [
         [int(num) for num in row.split(",")] for row in junction_positions

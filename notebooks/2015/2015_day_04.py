@@ -70,8 +70,7 @@ def _(mo):
 
 @app.function
 def exercise_4_find_lowest_number(secret_key: str, number_of_leading_zeros: int) -> int:
-    """
-    Find the lowest positive number that produces an MD5 hash with a
+    """Find the lowest positive number that produces an MD5 hash with a
     specified number of leading zeroes when appended to the secret key.
 
     The MD5 hash is computed for the concatenation of the secret key and
@@ -80,8 +79,8 @@ def exercise_4_find_lowest_number(secret_key: str, number_of_leading_zeros: int)
 
     Args:
         secret_key (str): The secret key string to use as the base of the hash.
-        number_of_leading_zeros (int): The required number of leading zeroes
-            in the hash. Default is 5.
+        number_of_leading_zeros (int): The required number of leading zeroes in
+            the hash. Default is 5.
 
     Returns:
         int: The lowest positive integer that, when appended to the secret key,

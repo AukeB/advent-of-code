@@ -203,19 +203,18 @@ def _(mo):
 
 @app.function
 def exercise_7_1_find_number_of_beam_splits(tachyon_manifold: list[str]) -> int:
-    """
-    Count the total number of times tachyon beams are split in a manifold.
+    """Count the total number of times tachyon beams are split in a manifold.
 
     A tachyon beam starts at the location marked 'S' in the top row and moves
     downward. Beams pass freely through empty spaces ('.') and are split when
-    they encounter a splitter ('^'). When a splitter is hit, the beam stops
-    and two new beams are emitted from the immediate left and right positions
-    of the splitter. Overlapping beams in the same column are counted only
-    once per row.
+    they encounter a splitter ('^'). When a splitter is hit, the beam stops and
+    two new beams are emitted from the immediate left and right positions of the
+    splitter. Overlapping beams in the same column are counted only once per
+    row.
 
     Args:
-        tachyon_manifold (list[str]): A list of strings representing the grid
-            of the tachyon manifold. 'S' marks the starting point, '.' is empty
+        tachyon_manifold (list[str]): A list of strings representing the grid of
+            the tachyon manifold. 'S' marks the starting point, '.' is empty
             space, and '^' is a splitter.
 
     Returns:
@@ -381,22 +380,24 @@ def _(mo):
 @app.cell
 def exercise_7_2_find_number_of_timelines(defaultdict):
     def exercise_7_2_find_number_of_timelines(tachyon_manifold: list[str]) -> int:
-        """
-        Count the total number of quantum timelines for a single tachyon particle
-        traversing a quantum tachyon manifold using the many-worlds interpretation.
+        """Count the total number of quantum timelines for a single tachyon
+        particle traversing a quantum tachyon manifold using the many-worlds
+        interpretation.
 
         Each splitter ('^') splits the current timeline into two: one going left
-        and one going right. Timelines do not merge; every possible path is counted
-        as a distinct timeline. The particle starts at the location marked 'S' in
-        the top row and moves downward, creating new timelines at each splitter.
+        and one going right. Timelines do not merge; every possible path is
+        counted as a distinct timeline. The particle starts at the location
+        marked 'S' in the top row and moves downward, creating new timelines at
+        each splitter.
 
         Args:
-            tachyon_manifold (list[str]): A list of strings representing the quantum
-                tachyon manifold. 'S' marks the starting point, '.' is empty space,
-                and '^' is a splitter.
+            tachyon_manifold (list[str]): A list of strings representing the
+                quantum tachyon manifold. 'S' marks the starting point, '.' is
+                empty space, and '^' is a splitter.
 
         Returns:
-            int: Total number of unique timelines after the particle traverses the manifold.
+            int: Total number of unique timelines after the particle traverses
+                the manifold.
         """
         timeline_counter = {tachyon_manifold[0].index("S"): 1}
 
@@ -440,15 +441,14 @@ def _(exercise_7_2_find_number_of_timelines, tachyon_manifold):
 
 @app.function
 def exercise_7_2_find_number_of_timelines_iterative(tachyon_manifold: list[str]) -> int:
-    """
-    Count the total number of quantum timelines for a single tachyon particle
+    """Count the total number of quantum timelines for a single tachyon particle
     traversing a quantum tachyon manifold using an iterative DFS approach.
 
     A single tachyon particle starts at 'S' in the top row and moves downward.
     Each splitter ('^') creates two new timelines: one moving left and one
-    moving right. Empty cells ('.') allow the particle to continue straight down.
-    This function explores all possible paths iteratively, using backtracking
-    to account for all splits.
+    moving right. Empty cells ('.') allow the particle to continue straight
+    down. This function explores all possible paths iteratively, using
+    backtracking to account for all splits.
 
     Args:
         tachyon_manifold (list[str]): A list of strings representing the quantum
@@ -456,7 +456,8 @@ def exercise_7_2_find_number_of_timelines_iterative(tachyon_manifold: list[str])
             and '^' is a splitter.
 
     Returns:
-        int: Total number of unique timelines after the particle traverses the manifold.
+        int: Total number of unique timelines after the particle traverses the
+            manifold.
     """
 
     def propagate_beam_downward(
@@ -464,21 +465,24 @@ def exercise_7_2_find_number_of_timelines_iterative(tachyon_manifold: list[str])
         choices: list[str],
         tachyon_manifold: list[str],
     ) -> tuple[list[int], list[str]]:
-        """
-        Propagate the beam downward through the manifold until the bottom is reached.
+        """Propagate the beam downward through the manifold until the bottom is
+        reached.
 
         For each row below the current beam position:
-        - If the cell is a splitter ('^'), a left branch is chosen and recorded in choices.
+        - If the cell is a splitter ('^'), a left branch is chosen and recorded
+          in choices.
         - If the cell is empty ('.'), the beam continues straight down.
 
         Args:
-            beam_x_coordinates (list[int]): Current x-coordinates of the beam path.
+            beam_x_coordinates (list[int]): Current x-coordinates of the beam
+                path.
             choices (list[str]): List of choices taken so far ('L', 'R', '-').
-            tachyon_manifold (list[str]): The full quantum tachyon manifold grid.
+            tachyon_manifold (list[str]): The full quantum tachyon manifold
+                grid.
 
         Returns:
-            tuple[list[int], list[str]]: Updated beam x-coordinates and choices after
-                propagating to the bottom of the manifold.
+            tuple[list[int], list[str]]: Updated beam x-coordinates and choices
+                after propagating to the bottom of the manifold.
         """
         while len(beam_x_coordinates) < len(tachyon_manifold):
             x = beam_x_coordinates[-1]

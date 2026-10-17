@@ -78,17 +78,15 @@ def _(mo):
 def exercise_12_1_find_sum_of_all_numbers(
     json_document: str,
 ) -> int:
-    """
-    Sum every integer found in a JSON document without parsing it.
+    """Sum every integer found in a JSON document without parsing it.
 
-    The document is scanned character by character, looking one character
-    ahead, so that each run of consecutive digits is collected into a single
-    number. A minus sign directly before the first digit makes that number
-    negative.
+    The document is scanned character by character, looking one character ahead,
+    so that each run of consecutive digits is collected into a single number. A
+    minus sign directly before the first digit makes that number negative.
 
     1. Walk the document in (current, next) character pairs.
-    2. Accumulate digits while the next character is a digit, recording on
-       the first digit whether the preceding character is a minus sign.
+    2. Accumulate digits while the next character is a digit, recording on the
+       first digit whether the preceding character is a minus sign.
     3. When a non-digit follows, convert the collected digits to an integer,
        apply the sign, and store it.
     4. Sum all stored integers.
@@ -171,8 +169,8 @@ def exercise_12_2_find_sum_without_red(
     json_document: str,
     ignore_value: str = "red",
 ) -> int:
-    """
-    Sum every integer in a JSON document, ignoring objects that contain a value.
+    """Sum every integer in a JSON document, ignoring objects that contain a
+    value.
 
     The document is parsed with the json module and then traversed recursively.
     Any object with ignore_value among its direct values is excluded along with
@@ -181,7 +179,8 @@ def exercise_12_2_find_sum_without_red(
 
     Args:
         json_document (str): The raw JSON text to process.
-        ignore_value (str): The value that disqualifies an object from being counted.
+        ignore_value (str): The value that disqualifies an object from being
+            counted.
 
     Returns:
         total_sum (int): The sum of all integers outside of ignored objects.
@@ -194,11 +193,11 @@ def exercise_12_2_find_sum_without_red(
         json_content: list | dict | int | str,
         total_sum: int,
     ) -> int:
-        """
-        Recursively add every integer in a parsed JSON node to a running total.
+        """Recursively add every integer in a parsed JSON node to a running
+        total.
 
-        Lists are traversed element by element. Dicts are skipped entirely, along
-        with everything nested inside them, if ignore_value (read from the
+        Lists are traversed element by element. Dicts are skipped entirely,
+        along with everything nested inside them, if ignore_value (read from the
         enclosing function) is among their direct values. Strings and any other
         types contribute nothing.
 
@@ -207,7 +206,8 @@ def exercise_12_2_find_sum_without_red(
             total_sum (int): The running total accumulated so far.
 
         Returns:
-            total_sum (int): The running total including all integers in this node.
+            total_sum (int): The running total including all integers in this
+                node.
         """
         if isinstance(json_content, list):
             for json_element in json_content:

@@ -163,8 +163,7 @@ def _(mo):
 @app.cell
 def _(defaultdict, np):
     class Present:
-        """
-        Represents a 2D present shape using a grid of 0's and 1's.
+        """Represents a 2D present shape using a grid of 0's and 1's.
 
         Provides operations to rotate and flip the shape. Useful for
         manipulation of discrete 2D patterns in grid-based problems.
@@ -175,45 +174,36 @@ def _(defaultdict, np):
         """
 
         def __init__(self, present_shape: list[list[int]]) -> None:
-            """
-            Initialize a Present object with a 2D grid.
+            """Initialize a Present object with a 2D grid.
 
             Args:
-                present_shape (list[list[int]]): The 2D grid representing the shape.
+                present_shape (list[list[int]]): The 2D grid representing the
+                    shape.
             """
             self.shape = present_shape
 
         def rotate_clockwise(self) -> None:
-            """
-            Rotate the present 90 degrees clockwise in-place
-            """
+            """Rotate the present 90 degrees clockwise in-place"""
             self.shape = [list(row) for row in zip(*self.shape[::-1])]
 
         def rotate_counterclockwise(self) -> None:
-            """
-            Rotate the present 90 degrees counterclockwise in-place.
-            """
+            """Rotate the present 90 degrees counterclockwise in-place."""
             self.shape = [list(row) for row in zip(*self.shape)]
             self.shape.reverse()
 
         def flip_horizontal(self) -> None:
-            """
-            Flip the present horizontally in-place.
-            """
+            """Flip the present horizontally in-place."""
             self.shape = [row[::-1] for row in self.shape]
 
         def flip_vertical(self) -> None:
-            """
-            Flip the present vertically in-place.
-            """
+            """Flip the present vertically in-place."""
             self.shape = self.shape[::-1]
 
         def __str__(self) -> str:
-            """
-            Return a string representation of the present.
+            """Return a string representation of the present.
 
-            Converts the 2D grid of 0s and 1s into a visual format using
-            '#' for filled cells and '.' for empty cells.
+            Converts the 2D grid of 0s and 1s into a visual format using '#' for
+            filled cells and '.' for empty cells.
             """
             return "\n" + "\n".join(
                 "".join("#" if cell else "." for cell in row) for row in self.shape

@@ -77,12 +77,12 @@ def _(mo):
 def exercise_10_1_compute_look_and_say_sequence(
     start_value: str, number_of_iterations: int
 ) -> list[str]:
-    """
-    Apply the look-and-say transformation iteratively, returning the full sequence.
+    """Apply the look-and-say transformation iteratively, returning the full
+    sequence.
 
     Each step reads the current value as runs of identical digits and encodes
-    each run as its length followed by the digit. The returned list includes
-    the original start_value as the first element.
+    each run as its length followed by the digit. The returned list includes the
+    original start_value as the first element.
 
     Args:
         start_value (str): The initial digit string to begin the sequence from.

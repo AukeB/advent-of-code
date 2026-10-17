@@ -88,13 +88,13 @@ def _(defaultdict):
     def exercise_1_1_find_the_final_floor_number(
         floor_instructions: str, starting_floor_number: int = 0
     ) -> int:
-        """
-        Calculate the final floor Santa ends up on based on floor instructions.
+        """Calculate the final floor Santa ends up on based on floor
+        instructions.
 
-        Santa starts on `starting_floor_number` (defaults to 0) and follows a sequence
-        of instructions where '(' means going up one floor and ')' means going
-        down one floor. This function counts the ups and downs to determine the
-        final floor.
+        Santa starts on `starting_floor_number` (defaults to 0) and follows a
+        sequence of instructions where '(' means going up one floor and ')'
+        means going down one floor. This function counts the ups and downs to
+        determine the final floor.
 
         Args:
             floor_instructions (str): A string containing '(' and ')' characters
@@ -172,18 +172,17 @@ def exercise_1_2_find_position_first_character_basement_entry(
     floor_instructions: str,
     starting_floor_number: int = 0,
 ) -> int:
-    """
-    Determine the position of the first instruction that causes Santa to enter
-    the basement.
+    """Determine the position of the first instruction that causes Santa to
+    enter the basement.
 
-    Santa starts on `starting_floor_number` (defaults to 0) and follows a sequence
-    of instructions where '(' increases the floor by one and ')' decreases it
-    by one. The function returns the 1-based position of the first character
-    that brings Santa to floor -1 (the basement).
+    Santa starts on `starting_floor_number` (defaults to 0) and follows a
+    sequence of instructions where '(' increases the floor by one and ')'
+    decreases it by one. The function returns the 1-based position of the first
+    character that brings Santa to floor -1 (the basement).
 
     Args:
-        floor_instructions (str): A string of '(' and ')' characters representing
-            Santa's floor movements.
+        floor_instructions (str): A string of '(' and ')' characters
+            representing Santa's floor movements.
         starting_floor_number (int, optional): The floor Santa starts on.
             Defaults to 0.
 

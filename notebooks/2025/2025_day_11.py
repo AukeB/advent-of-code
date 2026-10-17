@@ -106,8 +106,7 @@ def exercise_11_1_find_all_device_paths(
     start_device_name: str = "you",
     end_device_name: str = "out",
 ) -> int:
-    """
-    Count all directed paths from a start device to an end device.
+    """Count all directed paths from a start device to an end device.
 
     The input defines a directed graph where each line maps a device to its
     output devices. The function builds the graph and uses a memoized DFS to
@@ -131,11 +130,10 @@ def exercise_11_1_find_all_device_paths(
     number_of_paths = {}
 
     def find_number_of_paths(node: str) -> int:
-        """
-        Return the number of paths from the given node to the end device.
+        """Return the number of paths from the given node to the end device.
 
-        Results are cached to avoid recomputing path counts for nodes that
-        have already been processed.
+        Results are cached to avoid recomputing path counts for nodes that have
+        already been processed.
 
         Args:
             node (str): The current device being explored.
@@ -259,24 +257,25 @@ def exercise_11_2_find_all_device_paths(
     end_device_name: str = "out",
     mid_device_names: list[str] = ["fft", "dac"],
 ) -> int:
-    """
-    Count all directed paths from `start_device_name` to `end_device_name` that
-    visit all devices listed in `mid_device_names` at least once. Uses a
-    memoized depth-first search (DFS) to efficiently compute the number of
-    valid paths.
+    """Count all directed paths from `start_device_name` to `end_device_name`
+    that visit all devices listed in `mid_device_names` at least once. Uses a
+    memoized depth-first search (DFS) to efficiently compute the number of valid
+    paths.
 
     Args:
-        list_of_devices (list[str]): Each element is a string describing a device
-            and its outputs, in the format "device: output1 output2 ...".
+        list_of_devices (list[str]): Each element is a string describing a
+            device and its outputs, in the format "device: output1 output2 ...".
         start_device_name (str): The device from which to start path traversal.
             Default is "svr".
-        end_device_name (str): The target device where paths end. Default is "out".
-        mid_device_names (list[str]): Devices that must be visited along the path.
-            Default is ["fft", "dac"].
+        end_device_name (str): The target device where paths end. Default is
+            "out".
+        mid_device_names (list[str]): Devices that must be visited along the
+            path. Default is ["fft", "dac"].
 
     Returns:
         int: The total number of distinct paths from `start_device_name` to
-            `end_device_name` that pass through all devices in `mid_device_names`.
+            `end_device_name` that pass through all devices in
+            `mid_device_names`.
     """
     device_mapping = {}
 
@@ -288,31 +287,29 @@ def exercise_11_2_find_all_device_paths(
     number_of_valid_paths = {}
 
     def find_number_of_paths(node: str, visited_nodes: frozenset) -> int:
-        """
-        Recursively count paths from the current `node` to `end_device_name`,
+        """Recursively count paths from the current `node` to `end_device_name`,
         while keeping track of which required mid-nodes have been visited.
 
         Args:
             node (str): The current device in the path.
-            visited_nodes (frozenset): The set of mid-device names visited so far.
+            visited_nodes (frozenset): The set of mid-device names visited so
+                far.
 
         Returns:
             int: The number of valid paths from this node to `end_device_name`
                 that include all required mid-device nodes.
         """
 
-        """
-        Instead of just having the node as key, a tuple is created consisting
-        of the node and a frozen set of visited nodes. The set if frozen
-        so that it can be used as a key of the dictionary.
+        """Instead of just having the node as key, a tuple is created consisting
+        of the node and a frozen set of visited nodes. The set if frozen so that
+        it can be used as a key of the dictionary.
         """
         key = (node, visited_nodes)
 
         if key in number_of_valid_paths:
             return number_of_valid_paths[key]
 
-        """
-        If the current node is in mid_device_names, overwrite the frozen set
+        """If the current node is in mid_device_names, overwrite the frozen set
         with a new one that contains the current node.
         """
         if node in mid_device_names:

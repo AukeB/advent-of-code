@@ -83,8 +83,8 @@ def _(mo):
 def exercise_14_1_find_fastest_reinder(
     reindeer_descriptions: list[str], total_time: int = 2503
 ) -> tuple[dict, int]:
-    """
-    Simulate each reindeer's flight and rest cycles to find the winning distance.
+    """Simulate each reindeer's flight and rest cycles to find the winning
+    distance.
 
     1. Parse each reindeer description into its speed, move duration, rest
        duration, and combined cycle duration.
@@ -98,9 +98,9 @@ def exercise_14_1_find_fastest_reinder(
         total_time (int): Number of seconds the race runs for.
 
     Returns:
-        reindeers (dict[str, dict[str, Any]]): Mapping of reindeer name to
-            its stats, including the full "traveled" history of
-            [time, distance] pairs.
+        reindeers (dict[str, dict[str, Any]]): Mapping of reindeer name to its
+            stats, including the full "traveled" history of [time, distance]
+            pairs.
         winning_reindeer_distance_traveled (int): Distance traveled by the
             leading reindeer once the race ends.
     """
@@ -149,27 +149,26 @@ def exercise_14_1_find_fastest_reinder(
 @app.cell
 def _(go, px):
     def exercise_14_plot_reindeer_distances(reindeers: dict) -> go.Figure:  # pyright: ignore[reportInvalidTypeForm]
-        """
-        Plot each reindeer's distance (and points, if tracked) over time.
+        """Plot each reindeer's distance (and points, if tracked) over time.
 
         1. Check whether any reindeer has a "points" history, since only part 2
            tracks it.
         2. Create an empty figure.
         3. For each reindeer, unpack its "traveled" (and "points") history into
-           time/value sequences and add each as a line trace, using a solid
-           line for distance and a dashed line for points, sharing color per
+           time/value sequences and add each as a line trace, using a solid line
+           for distance and a dashed line for points, sharing color per
            reindeer.
         4. Apply layout styling (titles, hover mode) and return the figure.
 
         Args:
             reindeers (dict[str, dict[str, Any]]): Mapping of reindeer name to
-                its stats, including a "traveled" list of [time, distance]
-                pairs and, for part 2, a "points" list of [time, points] pairs.
+                its stats, including a "traveled" list of [time, distance] pairs
+                and, for part 2, a "points" list of [time, points] pairs.
 
         Returns:
-            figure (go.Figure): Interactive Plotly figure with one distance
-                line per reindeer, plus a points line per reindeer when
-                tracked, sharing colors and a y-axis across both metrics.
+            figure (go.Figure): Interactive Plotly figure with one distance line
+                per reindeer, plus a points line per reindeer when tracked,
+                sharing colors and a y-axis across both metrics.
         """
         has_points = any(
             "points" in reindeer_stats for reindeer_stats in reindeers.values()
@@ -296,15 +295,15 @@ def _(mo):
 def exercise_14_2_find_fastest_reindeer(
     reindeer_descriptions: list[str], total_time: int = 2503
 ) -> tuple[dict, int]:
-    """
-    Simulate each reindeer's flight and rest cycles to find the winning score.
+    """Simulate each reindeer's flight and rest cycles to find the winning
+    score.
 
     1. Parse each reindeer description into its speed, move duration, rest
        duration, and combined cycle duration.
-    2. Step through every second, updating each reindeer's cumulative
-       distance based on whether it is flying or resting.
-    3. After each second, award a point to every reindeer currently tied
-       for the furthest distance, recording the running point total.
+    2. Step through every second, updating each reindeer's cumulative distance
+       based on whether it is flying or resting.
+    3. After each second, award a point to every reindeer currently tied for the
+       furthest distance, recording the running point total.
     4. Return the reindeer with the most points once the race ends.
 
     Args:
@@ -313,9 +312,8 @@ def exercise_14_2_find_fastest_reindeer(
         total_time (int): Number of seconds the race runs for.
 
     Returns:
-        reindeers (dict): Mapping of reindeer name to its stats, including
-            the full "traveled" and "points" histories as [time, value]
-            pairs.
+        reindeers (dict): Mapping of reindeer name to its stats, including the
+            full "traveled" and "points" histories as [time, value] pairs.
         winning_reindeer_most_points (int): Highest point total among all
             reindeer once the race ends.
     """

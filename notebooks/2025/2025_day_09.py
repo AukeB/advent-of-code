@@ -164,12 +164,11 @@ def _(go):
         line_color: str = "black",
         marker_color: str = "black",
     ) -> None:
-        """
-        Plot connected tile coordinates and a largest rectangle overlay.
+        """Plot connected tile coordinates and a largest rectangle overlay.
 
-        This function visualizes two closed polygonal paths using Plotly:
-        one representing red tiles and another representing the largest
-        rectangle. Both shapes are plotted with equal x/y scaling.
+        This function visualizes two closed polygonal paths using Plotly: one
+        representing red tiles and another representing the largest rectangle.
+        Both shapes are plotted with equal x/y scaling.
 
         Args:
             red_tile_coordinates: List of [x, y] pairs defining red tiles.
@@ -184,11 +183,10 @@ def _(go):
             line_color: str,
             marker_color: str,
         ) -> go.Figure:  # pyright: ignore[reportInvalidTypeForm]
-            """
-            Add a closed polygon trace to an existing Plotly figure.
+            """Add a closed polygon trace to an existing Plotly figure.
 
-            The first coordinate is appended to the end to close the loop.
-            A single scatter trace with markers and lines is added.
+            The first coordinate is appended to the end to close the loop. A
+            single scatter trace with markers and lines is added.
 
             Args:
                 fig: Plotly figure to which the trace is added.
@@ -234,19 +232,22 @@ def _():
     def exercise_9_1_find_largest_rectangle(
         red_tile_data: list[str],
     ) -> tuple[int, list[list[int]] | None]:
-        """
-        Find the largest possible rectangle area formed by any two red tiles as opposite corners.
+        """Find the largest possible rectangle area formed by any two red tiles
+        as opposite corners.
 
-        Each coordinate is given as a string "x,y". Two tiles define a rectangle whose area is
-        computed as (abs(x1 - x2) + 1) * (abs(y1 - y2) + 1). All unique tile pairs are evaluated,
-        and the largest resulting rectangle area is returned.
+        Each coordinate is given as a string "x,y". Two tiles define a rectangle
+        whose area is computed as (abs(x1 - x2) + 1) * (abs(y1 - y2) + 1). All
+        unique tile pairs are evaluated, and the largest resulting rectangle
+        area is returned.
 
         Args:
-            red_tile_data (list[str]): List of red tile positions as "x,y" strings.
+            red_tile_data (list[str]): List of red tile positions as "x,y"
+                strings.
 
         Returns:
-            tuple[int, list[list[int]] | None]: The largest rectangle area formed
-                by any pair of red tiles, and the corner coordinates of that rectangle.
+            tuple[int, list[list[int]] | None]: The largest rectangle area
+                formed by any pair of red tiles, and the corner coordinates of
+                that rectangle.
         """
         red_tile_coordinates = [
             [int(num) for num in row.split(",")] for row in red_tile_data
@@ -441,8 +442,8 @@ def _(namedtuple):
     def exercise_9_2_find_largest_area(
         red_tile_data: list[str], number_of_sampled_edge_points: int
     ) -> tuple[int, list[list[int]] | None]:
-        """
-        Find the largest axis-aligned rectangle using only red and green tiles.
+        """Find the largest axis-aligned rectangle using only red and green
+        tiles.
 
         Red tiles form the vertices of a closed, orthogonal loop. Consecutive
         red tiles are connected by straight lines of green tiles, and all tiles
@@ -453,29 +454,29 @@ def _(namedtuple):
         inside the rectangle, including its boundary, must lie entirely within
         the red-green region defined by the polygon.
 
-        The core geometric insight is:
-        - A point is inside if it is bounded on all sides.
+        The core geometric insight is: - A point is inside if it is bounded on
+        all sides.
 
-        For each candidate rectangle, only points on the rectangle boundary
-        are tested. If every sampled boundary point is bounded on all four
-        cardinal directions by polygon edges, the rectangle is guaranteed to
-        lie fully inside the allowed region.
+        For each candidate rectangle, only points on the rectangle boundary are
+        tested. If every sampled boundary point is bounded on all four cardinal
+        directions by polygon edges, the rectangle is guaranteed to lie fully
+        inside the allowed region.
 
         Early pruning is applied to discard rectangle candidates whose area
         cannot exceed the current maximum.
 
         Args:
-            red_tile_coordinates (list[str]):
-                Ordered list of red tile coordinates as "x,y" strings. Adjacent
-                entries are connected by straight horizontal or vertical paths.
+            red_tile_coordinates (list[str]): Ordered list of red tile
+                coordinates as "x,y" strings. Adjacent entries are connected by
+                straight horizontal or vertical paths.
             number_of_sampled_edge_points (int): Number of points to sample on
                 the rectangle edges, includes the corner points, so the minimum
                 value for this variable is 2.
 
         Returns:
-            tuple[int, list[list[int]] | None]:
-                The largest rectangle area that can be formed using only red
-                and green tiles, and the corner coordinates of that rectangle.
+            tuple[int, list[list[int]] | None]: The largest rectangle area that
+                can be formed using only red and green tiles, and the corner
+                coordinates of that rectangle.
         """
         Point = namedtuple("Point", ["x", "y"])
 
@@ -508,12 +509,12 @@ def _(namedtuple):
             horizontal_edges: list[tuple[int, tuple[int, int]]] = horizontal_edges,
             vertical_edges: list[tuple[int, tuple[int, int]]] = vertical_edges,
         ) -> bool:
-            """
-            Determine whether a point lies inside the red-green polygon.
+            """Determine whether a point lies inside the red-green polygon.
 
-            The polygon is represented implicitly by horizontal and vertical edges.
-            A point is considered inside (or on the boundary) if it is blocked by
-            at least one polygon edge in all four cardinal directions.
+            The polygon is represented implicitly by horizontal and vertical
+            edges. A point is considered inside (or on the boundary) if it is
+            blocked by at least one polygon edge in all four cardinal
+            directions.
 
             This function checks for:
             - A vertical edge to the left
@@ -521,24 +522,22 @@ def _(namedtuple):
             - A horizontal edge below
             - A horizontal edge above
 
-            The defining principle is:
-            A point is inside if it is bounded on all sides.
+            The defining principle is: A point is inside if it is bounded on all
+            sides.
 
             This test is a specialized ray-casting variant optimized for simple
             orthogonal polygons without holes.
 
             Args:
-                corner (Point):
-                    The point to test for containment.
-                horizontal_edges (list[tuple[int, tuple[int, int]]]):
-                    Horizontal polygon edges as (y, (x_min, x_max)).
-                vertical_edges (list[tuple[int, tuple[int, int]]]):
-                    Vertical polygon edges as (x, (y_min, y_max)).
+                corner (Point): The point to test for containment.
+                horizontal_edges (list[tuple[int, tuple[int, int]]]): Horizontal
+                    polygon edges as (y, (x_min, x_max)).
+                vertical_edges (list[tuple[int, tuple[int, int]]]): Vertical
+                    polygon edges as (x, (y_min, y_max)).
 
             Returns:
-                bool:
-                    True if the point is inside or on the boundary of the polygon,
-                    False otherwise.
+                bool: True if the point is inside or on the boundary of the
+                    polygon, False otherwise.
             """
             horizontal_left = False
             horizontal_right = False
@@ -578,18 +577,18 @@ def _(namedtuple):
             end_coordinate: int,
             number_of_interpolated_points: int,
         ) -> list[int]:
-            """
-            Construct integer sample points along a rectangle edge by interpolation.
+            """Construct integer sample points along a rectangle edge by
+            interpolation.
 
             Args:
                 start_coordinate (int): Start coordinate.
                 end_coordinate (int): End coordinate.
-                number_of_interpolated_points (int): Number of points to sample along the
-                    edge (must be >= 2).
+                number_of_interpolated_points (int): Number of points to sample
+                    along the edge (must be >= 2).
 
             Returns:
-                list[int]: Integer coordinates sampled between the start and end values,
-                    inclusive.
+                list[int]: Integer coordinates sampled between the start and end
+                    values, inclusive.
             """
             assert number_of_interpolated_points >= 2, (
                 "number_of_interpolated_points must be at least 2"

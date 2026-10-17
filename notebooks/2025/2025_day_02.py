@@ -100,17 +100,18 @@ def _(mo):
 
 @app.function
 def exercise_2_1_find_invalid_ids(product_id_ranges: list[str]) -> int:
-    """
-    Identifies invalid product IDs within given ranges and returns their sum.
+    """Identifies invalid product IDs within given ranges and returns their sum.
 
     This function processes a list of product ID ranges to identify invalid IDs.
-    An invalid ID is defined as a number that consists of a sequence of digits repeated twice (e.g., 55, 6464, 123123).
-    Each range is specified in the format 'start-end', where both start and end are inclusive.
-    The function checks each ID within the range, determines if it is invalid based on the repeated digit pattern,
-    and sums all the invalid IDs.
+    An invalid ID is defined as a number that consists of a sequence of digits
+    repeated twice (e.g., 55, 6464, 123123). Each range is specified in the
+    format 'start-end', where both start and end are inclusive. The function
+    checks each ID within the range, determines if it is invalid based on the
+    repeated digit pattern, and sums all the invalid IDs.
 
     Args:
-        product_id_ranges (list[str]): A list of product ID ranges in the format 'start-end'.
+        product_id_ranges (list[str]): A list of product ID ranges in the format
+            'start-end'.
 
     Returns:
         int: The sum of all invalid IDs found within the given ranges.
@@ -226,20 +227,24 @@ def _(mo):
 
 @app.function
 def exercise_2_2_find_invalid_ids(product_id_ranges: list[str]) -> int:
-    """
-    Identifies invalid product IDs within given ranges and returns their sum using updated rules.
+    """Identifies invalid product IDs within given ranges and returns their sum
+    using updated rules.
 
-    This function processes a list of product ID ranges to identify invalid IDs based on new rules.
-    An invalid ID is defined as a number that consists of a sequence of digits repeated at least twice
-    (e.g., 12341234, 123123123, 1111111). Each range is specified in the format 'start-end', where both
-    start and end are inclusive. The function checks each ID within the range, determines if it is invalid
-    based on the repeated digit pattern, and sums all the invalid IDs.
+    This function processes a list of product ID ranges to identify invalid IDs
+    based on new rules. An invalid ID is defined as a number that consists of a
+    sequence of digits repeated at least twice (e.g., 12341234, 123123123,
+    1111111). Each range is specified in the format 'start-end', where both
+    start and end are inclusive. The function checks each ID within the range,
+    determines if it is invalid based on the repeated digit pattern, and sums
+    all the invalid IDs.
 
     Args:
-        product_id_ranges (list[str]): A list of product ID ranges in the format 'start-end'.
+        product_id_ranges (list[str]): A list of product ID ranges in the format
+            'start-end'.
 
     Returns:
-        int: The sum of all invalid IDs found within the given ranges based on the updated rules.
+        int: The sum of all invalid IDs found within the given ranges based on
+            the updated rules.
     """
     invalid_ids = []
 

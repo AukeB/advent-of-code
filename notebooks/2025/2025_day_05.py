@@ -104,14 +104,13 @@ def _(mo):
 def exercise_5_1_identify_fresh_ingredients(
     ingredient_data: list[str],
 ) -> int:
-    """
-    Count how many available ingredient IDs are within any fresh ID range.
+    """Count how many available ingredient IDs are within any fresh ID range.
 
     The input consists of lines describing inclusive fresh ingredient ID ranges
     (each formatted as two integers separated by a hyphen, e.g. ``"3-5"``),
     followed by a blank line, and then lines containing individual ingredient
-    IDs. An ingredient ID is considered fresh if it falls within at least one
-    of the provided ranges.
+    IDs. An ingredient ID is considered fresh if it falls within at least one of
+    the provided ranges.
 
     Args:
         ingredient_data (list[str]): The raw lines from the inventory database.
@@ -119,8 +118,8 @@ def exercise_5_1_identify_fresh_ingredients(
             hyphen), a blank separator line, and available ingredient IDs.
 
     Returns:
-        int: The number of available ingredient IDs that fall within any
-            fresh ID range.
+        int: The number of available ingredient IDs that fall within any fresh
+            ID range.
     """
     ingredient_id_ranges = []
     available_ingredient_ids = []
@@ -228,32 +227,31 @@ def _(mo):
 def exercise_5_2_find_total_number_of_fresh_ingredients(
     ingredient_data: list[str],
 ) -> int:
-    """
-    Calculate the total number of distinct fresh ingredient IDs from a list of ranges.
+    """Calculate the total number of distinct fresh ingredient IDs from a list
+    of ranges.
 
     This function processes a list of ingredient ID ranges (ignoring individual
-    available ingredient IDs) and counts how many unique IDs are considered fresh.
-    The key challenge is that ranges can overlap, so a naive count could
+    available ingredient IDs) and counts how many unique IDs are considered
+    fresh. The key challenge is that ranges can overlap, so a naive count could
     double-count IDs. To handle this, the function iteratively breaks ranges
     into subranges and resolves overlaps until all ranges are non-overlapping.
 
-    High-level approach:
-        1. Parse the input to extract all ingredient ID ranges as (start, end) tuples.
-        2. Maintain a list of "non-overlapping" ranges and iteratively process each
-           initial range against this list:
-              - If a range overlaps with existing ranges, split it into subranges
-                to isolate the non-overlapping portions.
-              - If a range is entirely contained in an existing range, it is ignored.
-        3. Repeat this process until no further changes occur, i.e., until the
-           set of ranges reaches a stable state (a fixpoint).
-        4. Sum the lengths of all non-overlapping ranges to get the total count
-           of unique fresh ingredient IDs.
+    High-level approach: 1. Parse the input to extract all ingredient ID ranges
+    as (start, end) tuples. 2. Maintain a list of "non-overlapping" ranges and
+    iteratively process each initial range against this list: - If a range
+    overlaps with existing ranges, split it into subranges to isolate the non-
+    overlapping portions. - If a range is entirely contained in an existing
+    range, it is ignored. 3. Repeat this process until no further changes occur,
+    i.e., until the set of ranges reaches a stable state (a fixpoint). 4. Sum
+    the lengths of all non-overlapping ranges to get the total count of unique
+    fresh ingredient IDs.
 
     Args:
-        ingredient_data (list[str]): A list of strings representing the ingredient
-            database. Each string is either a fresh ID range formatted as
-            two integers separated by a hyphen (e.g., "3-5") or a blank line
-            separating sections. Individual ingredient IDs are ignored.
+        ingredient_data (list[str]): A list of strings representing the
+            ingredient database. Each string is either a fresh ID range
+            formatted as two integers separated by a hyphen (e.g., "3-5") or a
+            blank line separating sections. Individual ingredient IDs are
+            ignored.
 
     Returns:
         int: The total number of distinct ingredient IDs that are considered

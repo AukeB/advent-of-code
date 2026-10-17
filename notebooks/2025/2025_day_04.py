@@ -107,20 +107,19 @@ def _(mo):
 def exercise_4_1_find_accessible_paper_rolls(
     paper_roll_data: list[str], max_neighbours: int = 3
 ) -> int:
-    """
-    Determines the number of paper rolls that can be accessed by forklifts.
+    """Determines the number of paper rolls that can be accessed by forklifts.
 
-    The function evaluates each paper roll in a grid (provided as input) to check
-    if it has fewer than or equal to a specified number of adjacent paper rolls.
-    Forklifts can access a roll of paper if there are fewer than `max_neighbours`
-    paper rolls in the eight adjacent positions.
+    The function evaluates each paper roll in a grid (provided as input) to
+    check if it has fewer than or equal to a specified number of adjacent paper
+    rolls. Forklifts can access a roll of paper if there are fewer than
+    `max_neighbours` paper rolls in the eight adjacent positions.
 
     Args:
-        paper_roll_data (list[str]): A list of strings representing the grid of paper rolls.
-            Each string corresponds to a row in the grid, where '@' represents a paper roll
-            and '.' represents an empty space.
-        max_neighbours (int): The maximum number of allowable adjacent paper rolls for a forklift
-            to access a roll. Defaults to 3.
+        paper_roll_data (list[str]): A list of strings representing the grid of
+            paper rolls. Each string corresponds to a row in the grid, where '@'
+            represents a paper roll and '.' represents an empty space.
+        max_neighbours (int): The maximum number of allowable adjacent paper
+            rolls for a forklift to access a roll. Defaults to 3.
 
     Returns:
         int: The count of paper rolls that can be accessed by forklifts.
@@ -367,19 +366,20 @@ def _(mo):
 def exercise_4_2_iteratively_remove_paper_rolls(
     paper_roll_data: list[str], max_neighbours: int = 3
 ) -> int:
-    """
-    Determines the total number of paper rolls that can be iteratively removed by forklifts.
+    """Determines the total number of paper rolls that can be iteratively
+    removed by forklifts.
 
-    Forklifts can remove a roll of paper if there are fewer than or equal to `max_neighbours`
-    rolls of paper in the eight adjacent positions. Removing a roll may make other rolls accessible,
-    and the process continues until no more rolls can be removed.
+    Forklifts can remove a roll of paper if there are fewer than or equal to
+    `max_neighbours` rolls of paper in the eight adjacent positions. Removing a
+    roll may make other rolls accessible, and the process continues until no
+    more rolls can be removed.
 
     Args:
-        paper_roll_data (list[str]): A list of strings representing the grid of paper rolls.
-            Each string corresponds to a row in the grid, where '@' represents a paper roll
-            and '.' represents an empty space.
-        max_neighbours (int): The maximum number of allowable adjacent paper rolls for a forklift
-            to access and remove a roll. Defaults to 3.
+        paper_roll_data (list[str]): A list of strings representing the grid of
+            paper rolls. Each string corresponds to a row in the grid, where '@'
+            represents a paper roll and '.' represents an empty space.
+        max_neighbours (int): The maximum number of allowable adjacent paper
+            rolls for a forklift to access and remove a roll. Defaults to 3.
 
     Returns:
         int: The total number of paper rolls removed.

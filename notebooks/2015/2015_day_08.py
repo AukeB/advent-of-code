@@ -83,25 +83,26 @@ def _():
     import string
 
     def exercise_8_1_special_character_analysis(santas_list: list[str]) -> int:
-        """
-        Calculate the total number of characters of code for string literals minus
-        the total number of characters in memory for the values of the strings.
-        Handles three escape sequences: \\\\ (single backslash), \\" (lone double-quote),
-        and \\x followed by two hexadecimal characters (single ASCII character).
+        """Calculate the total number of characters of code for string literals
+        minus the total number of characters in memory for the values of the
+        strings. Handles three escape sequences: \\\\ (single backslash), \\"
+        (lone double-quote), and \\x followed by two hexadecimal characters
+        (single ASCII character).
 
         1. Initialise the difference counter with 2 per line to account for the
            surrounding double-quote characters.
-        2. For each line, walk character by character; when a backslash is found,
-           identify the escape sequence and increment the difference counter by the
-           number of code characters that collapse into one in-memory character.
+        2. For each line, walk character by character; when a backslash is
+           found, identify the escape sequence and increment the difference
+           counter by the number of code characters that collapse into one in-
+           memory character.
 
         Args:
-            santas_list (list[str]): The double-quoted string literals from Santa's
-                digital list, one per line.
+            santas_list (list[str]): The double-quoted string literals from
+                Santa's digital list, one per line.
 
         Returns:
-            difference_counter (int): Total characters of code minus total characters
-                in memory across all string literals.
+            difference_counter (int): Total characters of code minus total
+                characters in memory across all string literals.
         """
         difference_counter = 2 * len(santas_list)
 
@@ -180,9 +181,9 @@ def _(mo):
 
 @app.function
 def exercise_8_2_special_character_analysis(santas_list: list[str]) -> int:
-    """
-    Calculate the total number of characters in the re-encoded string literals
-    minus the total number of characters in the original code representation.
+    """Calculate the total number of characters in the re-encoded string
+    literals minus the total number of characters in the original code
+    representation.
 
     Re-encoding wraps each string in a new pair of double-quotes and escapes
     every backslash and double-quote character with an additional backslash.

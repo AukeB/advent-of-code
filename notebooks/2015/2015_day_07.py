@@ -105,8 +105,7 @@ def _(mo):
 @app.cell
 def _():
     def _get_wire_value(element: str, wire_signal_values: dict[str, int | None]) -> int:
-        """
-        Resolve an element to its integer value.
+        """Resolve an element to its integer value.
 
         Accepts either a numeric literal or a wire name. Raises ValueError if
         the wire has not yet been assigned a value, signalling the caller to
@@ -114,7 +113,8 @@ def _():
 
         Args:
             element (str): A wire name or numeric literal.
-            wire_signal_values (dict[str, int | None]): Current known wire values.
+            wire_signal_values (dict[str, int | None]): Current known wire
+                values.
 
         Returns:
             value (int): The resolved integer value.
@@ -133,8 +133,7 @@ def _():
         instruction_booklet: list[str],
         number_of_bits_max_signal: int = 16,
     ) -> dict[str, int | None]:
-        """
-        Find the signal value of each wire after processing all instructions.
+        """Find the signal value of each wire after processing all instructions.
 
         Iterates over instructions repeatedly until all wires have been assigned
         a value. Instructions that depend on wires not yet resolved are skipped
@@ -142,10 +141,12 @@ def _():
 
         Args:
             instruction_booklet (list[str]): The puzzle input lines.
-            number_of_bits_max_signal (int): Bit width of wire signals, defaults to 16.
+            number_of_bits_max_signal (int): Bit width of wire signals, defaults
+                to 16.
 
         Returns:
-            wire_signal_values (dict[str, int]): Mapping of wire name to its final signal.
+            wire_signal_values (dict[str, int]): Mapping of wire name to its
+                final signal.
         """
         arrow_definition = "->"
         max_signal_value = 2**number_of_bits_max_signal - 1

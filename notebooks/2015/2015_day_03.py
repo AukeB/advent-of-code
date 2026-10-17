@@ -75,18 +75,16 @@ def _(mo):
 def exercise_3_1_find_unique_houses(
     directional_data: str, starting_position: list[int] = [0, 0]
 ) -> int:
-    """
-    Count how many unique houses receive at least one present.
+    """Count how many unique houses receive at least one present.
 
-    Santa starts at the given starting position on an infinite 2D grid.
-    He follows a sequence of movement instructions and delivers a present
-    at each visited house. Houses visited multiple times are only counted
-    once.
+    Santa starts at the given starting position on an infinite 2D grid. He
+    follows a sequence of movement instructions and delivers a present at each
+    visited house. Houses visited multiple times are only counted once.
 
     Args:
         directional_data (str): A string of movement instructions. Each
-            character must be one of '^', 'v', '<', or '>', representing
-            north, south, west, and east respectively.
+            character must be one of '^', 'v', '<', or '>', representing north,
+            south, west, and east respectively.
         starting_position (list[int]): The (x, y) coordinates where Santa
             starts.
 
@@ -163,21 +161,20 @@ def _(mo):
 def exercise_3_2_find_unique_houses(
     directional_data: str, starting_position: list[int] = [0, 0]
 ) -> int:
-    """
-    Count how many unique houses receive at least one present when Santa
-    and Robo-Santa deliver presents alternately.
+    """Count how many unique houses receive at least one present when Santa and
+    Robo-Santa deliver presents alternately.
 
-    Santa and Robo-Santa start at the given starting position on an infinite
-    2D grid, delivering a present at the starting house. They then take turns
+    Santa and Robo-Santa start at the given starting position on an infinite 2D
+    grid, delivering a present at the starting house. They then take turns
     moving according to the sequence of movement instructions. Houses visited
     multiple times are only counted once.
 
     Args:
         directional_data (str): A string of movement instructions. Each
-            character must be one of '^', 'v', '<', or '>', representing
-            north, south, west, and east respectively.
-        starting_position (list[int]): The (x, y) coordinates where both
-            Santa and Robo-Santa start.
+            character must be one of '^', 'v', '<', or '>', representing north,
+            south, west, and east respectively.
+        starting_position (list[int]): The (x, y) coordinates where both Santa
+            and Robo-Santa start.
 
     Returns:
         int: The number of unique houses that receive at least one present.
