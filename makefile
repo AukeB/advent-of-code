@@ -26,6 +26,13 @@ ty:
 	uv run ty check
 	@echo "🔍 Successfully executed ty."
 
+# Export every marimo notebook to a Jupyter notebook next to it
+ipynb:
+	for nb in notebooks/*/*.py; do \
+		uv run marimo export ipynb "$$nb" -o "$${nb%.py}.ipynb" --include-outputs -f; \
+	done
+	@echo "📓 Successfully exported notebooks to ipynb."
+
 # Remove caches and temporary files
 clean:
 	@find . -type d \( \

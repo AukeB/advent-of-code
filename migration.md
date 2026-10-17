@@ -13,8 +13,9 @@ Target: `notebooks/<year>/<year>_day_NN.py` and `data/<year>/<year>_day_NN.txt` 
 4. **Copy the input file** into `data/<year>/`. Use `cp`, not `mv`, because the source repo still needs it.
 5. **Make only the allowed edits** (see below).
 6. **Run the notebook as a script**: `uv run python notebooks/<year>/<file>.py`. It must exit with code 0. The asserts check the answers.
-7. **Run the checks**: `uv run ruff check .`, `uv run pyright`, `uv run ty check`, `uv run deptry .`.
-8. **Add an entry** to the log below.
+7. **Run the checks**: `uv run ruff check .`, `uv run pyright`, `uv run ty check`, `uv run deptry .`, and `uv run docstring_tailor format` (the `format-docstrings` make target). The make targets are `make deptry`, `make ruff`, `make format-docstrings`, `make pyright`, and `make ty`.
+8. **Export the Jupyter notebooks** with `make ipynb`. This writes a `.ipynb` next to every marimo notebook.
+9. **Add an entry** to the log below.
 
 ## Allowed edits in the copied file
 
@@ -51,7 +52,6 @@ Any other change to the solution code must be recorded in the log entry for that
 ## Open questions
 
 - The 2025 dev notebook (`advent_of_code_2025_dev.py`).
-- The `.ipynb` exports in the source repo.
 - Whether the source repo keeps its copies once migration is done, which would leave two sources of truth.
 
 ## Log

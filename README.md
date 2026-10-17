@@ -5,7 +5,7 @@ Solutions to the [Advent of Code](https://adventofcode.com) puzzles, written as 
 ## Layout
 
 ```
-aoc/                    shared helper code
+src/aoc/                shared helper code
 notebooks/<year>/       one marimo notebook per puzzle day
 data/<year>/            puzzle inputs (not tracked in git)
 ```
@@ -21,5 +21,11 @@ uv run marimo
 To open a specific notebook, pass its path:
 
 ```
-uv run marimo edit notebooks/2025/2025_day_01.py
+uv run marimo edit notebooks/2015/2015_day_01.py
+```
+
+To export every notebook to a Jupyter notebook (`.ipynb`) next to it, with the outputs included:
+
+```
+make ipynb
 ```

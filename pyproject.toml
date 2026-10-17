@@ -25,3 +25,5 @@ known_first_party = ["aoc"]
 [tool.docstring_tailor]
 line-length = 80
 style = "google"
+[tool.ty.src]
+exclude = ["**/*.ipynb"]
