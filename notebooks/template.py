@@ -26,7 +26,7 @@ def _():
 
     from aoc.utils import read_data
 
-    return mo, read_data
+    return (mo,)
 
 
 @app.cell(hide_code=True)
@@ -72,10 +72,16 @@ app._unparsable_cell(
 )
 
 
-@app.cell
-def _(read_data):
+app._unparsable_cell(
+    r"""
     puzzle_input = read_data(file_path="data/{year}/{year}_day_{day}.txt", separator="\n")
-    return
+
+    solution_{day}_1 = exercise_{day}_1_{description}(puzzle_input=puzzle_input)
+
+    assert solution_{day}_1 is None
+    """,
+    name="_"
+)
 
 
 @app.cell(hide_code=True)
@@ -113,9 +119,14 @@ app._unparsable_cell(
 )
 
 
-@app.cell
-def _():
-    return
+app._unparsable_cell(
+    r"""
+    solution_{day}_2 = exercise_{day}_2_{description}(puzzle_input=puzzle_input)
+
+    assert solution_{day}_2 is None
+    """,
+    name="_"
+)
 
 
 if __name__ == "__main__":
