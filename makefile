@@ -29,7 +29,7 @@ ty:
 # Export every marimo notebook to a Jupyter notebook next to it
 ipynb:
 	for nb in notebooks/*/*.py; do \
-		uv run marimo export ipynb "$$nb" -o "$${nb%.py}.ipynb" --include-outputs -f; \
+		uv run marimo export ipynb "$$nb" -o "$${nb%.py}.ipynb" --include-outputs --sort top-down -f; \
 	done
 	@echo "📓 Successfully exported notebooks to ipynb."
 
