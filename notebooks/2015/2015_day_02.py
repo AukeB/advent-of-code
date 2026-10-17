@@ -150,7 +150,7 @@ def _(mo):
 
 
 @app.function
-def exercise_2_1_find_total_feet_of_ribbon(present_dimensions: list[str]) -> int:
+def exercise_2_2_find_total_feet_of_ribbon(present_dimensions: list[str]) -> int:
     """
     Calculate total ribbon needed for a list of box dimensions.
 
@@ -178,8 +178,8 @@ def exercise_2_1_find_total_feet_of_ribbon(present_dimensions: list[str]) -> int
 
 
 @app.cell
-def _(exercise_2_1_find_total_feet_of_ribbon, present_dimensions):
-    total_feet_of_ribbon = exercise_2_1_find_total_feet_of_ribbon(
+def _(exercise_2_2_find_total_feet_of_ribbon, present_dimensions):
+    total_feet_of_ribbon = exercise_2_2_find_total_feet_of_ribbon(
         present_dimensions=present_dimensions
     )
 
