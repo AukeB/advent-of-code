@@ -34,20 +34,6 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Constants
-    """)
-    return
-
-
-@app.cell
-def _():
-    DATA_DIRECTORY_PATH = "data/2015"
-    return (DATA_DIRECTORY_PATH,)
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
     ## Day 1 - Not Quite Lisp
     """)
     return
@@ -137,18 +123,16 @@ def _(defaultdict):
 
 
 @app.cell
-def _(
-    DATA_DIRECTORY_PATH,
-    exercise_1_1_find_the_final_floor_number,
-    read_data,
-):
+def _(exercise_1_1_find_the_final_floor_number, read_data):
     floor_instructions = read_data(
-        file_path=f"{DATA_DIRECTORY_PATH}/2015_day_01.txt", separator="\n"
+        file_path="data/2015/2015_day_01.txt", separator="\n"
     )
 
-    print(
-        exercise_1_1_find_the_final_floor_number(floor_instructions=floor_instructions)
+    final_floor_number = exercise_1_1_find_the_final_floor_number(
+        floor_instructions=floor_instructions
     )
+
+    assert final_floor_number == 232
     return (floor_instructions,)
 
 
@@ -221,11 +205,11 @@ def exercise_1_2_find_position_first_character_basement_entry(
 
 @app.cell
 def _(floor_instructions):
-    print(
-        exercise_1_2_find_position_first_character_basement_entry(
-            floor_instructions=floor_instructions
-        )
+    basement_entry_position = exercise_1_2_find_position_first_character_basement_entry(
+        floor_instructions=floor_instructions
     )
+
+    assert basement_entry_position == 1783
     return
 
 

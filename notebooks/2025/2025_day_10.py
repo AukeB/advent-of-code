@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.18.4"
+__generated_with = "0.25.1"
 app = marimo.App(width="medium", auto_download=["ipynb"])
 
 
@@ -23,55 +23,12 @@ def _(mo):
 @app.cell
 def _():
     import marimo as mo
+    import pulp
     import sys
 
     from aoc.utils import read_data
 
-    return mo, read_data, sys
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ## Constants
-    """)
-    return
-
-
-@app.cell
-def _():
-    DATA_DIRECTORY_PATH = "data/2025"
-    # DATA_DIRECTORY_PATH = "../../" + DATA_DIRECTORY_PATH
-    return (DATA_DIRECTORY_PATH,)
-
-
-@app.cell
-def _():
-    def convert_string_to_list_of_tuples(str_data: str) -> list[tuple[int]]:
-        """
-        Convert a string representation of tuples into a list of integer tuples.
-
-        Each tuple in the string should be enclosed in parentheses and separated
-        by spaces. Elements within a tuple should be comma-separated integers.
-
-        Args:
-            str_data (str): The str data representing one or more tuples.
-
-        Returns:
-            list[tuple[int]]: The same data but now with the correct variable
-                types.
-        """
-        list_of_tuples = []
-        data_split = str_data.split(" ")
-
-        for element in data_split:
-            sub_list_elements = element[1:-1].split(",")
-            sub_list_elements = [int(number) for number in sub_list_elements]
-            list_of_tuples.append(tuple(sub_list_elements))
-
-        return list_of_tuples
-
-    return (convert_string_to_list_of_tuples,)
+    return mo, pulp, read_data, sys
 
 
 @app.cell(hide_code=True)
@@ -154,8 +111,34 @@ def _(mo):
     return
 
 
+@app.function
+def convert_string_to_list_of_tuples(str_data: str) -> list[tuple[int]]:
+    """
+    Convert a string representation of tuples into a list of integer tuples.
+
+    Each tuple in the string should be enclosed in parentheses and separated
+    by spaces. Elements within a tuple should be comma-separated integers.
+
+    Args:
+        str_data (str): The str data representing one or more tuples.
+
+    Returns:
+        list[tuple[int]]: The same data but now with the correct variable
+            types.
+    """
+    list_of_tuples = []
+    data_split = str_data.split(" ")
+
+    for element in data_split:
+        sub_list_elements = element[1:-1].split(",")
+        sub_list_elements = [int(number) for number in sub_list_elements]
+        list_of_tuples.append(tuple(sub_list_elements))
+
+    return list_of_tuples
+
+
 @app.cell
-def _(convert_string_to_list_of_tuples, sys):
+def _(sys):
     def exercise_10_1_find_minimal_button_presses(manual: list[str]) -> int:
         """
         Compute the minimal number of button presses required for a list of
@@ -248,7 +231,7 @@ def _(convert_string_to_list_of_tuples, sys):
 
 
 @app.cell
-def _(convert_string_to_list_of_tuples, sys):
+def _(sys):
     def exercise_10_1_find_minimal_button_presses_binary_approach(
         manual: list[str],
     ) -> int:
@@ -356,19 +339,19 @@ def _(
 
 @app.cell
 def _(
-    DATA_DIRECTORY_PATH,
     exercise_10_1_find_minimal_button_presses,
     exercise_10_1_find_minimal_button_presses_binary_approach,
     read_data,
 ):
-    manual = read_data(
-        file_path=f"{DATA_DIRECTORY_PATH}/2025_day_10.txt", separator="\n"
+    manual = read_data(file_path="data/2025/2025_day_10.txt", separator="\n")
+
+    solution_10_1 = exercise_10_1_find_minimal_button_presses(manual=manual)
+    solution_10_1_v2 = exercise_10_1_find_minimal_button_presses_binary_approach(
+        manual=manual
     )
 
-    assert exercise_10_1_find_minimal_button_presses(manual=manual) == 578
-    assert (
-        exercise_10_1_find_minimal_button_presses_binary_approach(manual=manual) == 578
-    )
+    assert solution_10_1 == 578
+    assert solution_10_1_v2 == 578
     return (manual,)
 
 
@@ -427,9 +410,7 @@ def _(mo):
 
 
 @app.cell
-def _(convert_string_to_list_of_tuples):
-    import pulp
-
+def _(pulp):
     def exercise_10_2_find_minimal_button_presses(manual: list[str]) -> int:
         """
         Compute the minimal total number of button presses to reach target states for all
@@ -557,7 +538,9 @@ def _(example_manual, exercise_10_2_find_minimal_button_presses):
 
 @app.cell
 def _(exercise_10_2_find_minimal_button_presses, manual):
-    print(exercise_10_2_find_minimal_button_presses(manual=manual))
+    solution_10_2 = exercise_10_2_find_minimal_button_presses(manual=manual)
+
+    assert solution_10_2 == 20709
     return
 
 
