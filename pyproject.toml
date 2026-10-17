@@ -27,3 +27,6 @@ line-length = 80
 style = "google"
 [tool.ty.src]
 exclude = ["**/*.ipynb"]
+
+[tool.ruff]
+extend-exclude = ["*.ipynb"]

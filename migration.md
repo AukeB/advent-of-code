@@ -37,7 +37,7 @@ Target: `notebooks/<year>/<year>_day_NN.py` and `data/<year>/<year>_day_NN.txt` 
 - **Helper functions** used only by this puzzle move into the notebook. Place them in the `Part N - Solution` section, in their own cell that returns the function, for example `return (name,)`. Remove the function from `src/aoc/utils.py` and update its module docstring if needed.
 - **Dependencies** used by the solution go in `pyproject.toml` via `uv add`. Pin them to the versions the source repo locks (see its `uv.lock`). Pulp 4.x breaks Day 10, so use `pulp>=3.3.0,<4`.
 
-Any other change to the solution code must be recorded in the log entry for that puzzle.
+Leave the solution code as it is. The exception is formatting: running `ruff format` and `docstring_tailor format` on the migrated file is allowed, since they only change layout and docstrings. Any other change to the solution code must be recorded in the log entry for that puzzle.
 
 ## Gotchas
 
@@ -61,4 +61,6 @@ Any other change to the solution code must be recorded in the log entry for that
 | 2015 day 01 | Migrated | 232, 1783 | None |
 | 2015 day 02 | Migrated | Part 1: 1588178. Part 2: 3783758 | Part 2 function renamed from `exercise_2_1_find_total_feet_of_ribbon` to `exercise_2_2_find_total_feet_of_ribbon` (the source name had `2_1`). |
 | 2015 day 03 | Migrated | Part 1: 2565. Part 2: 2639 | None |
+| 2015 day 04 | Migrated | Part 1: 346386. Part 2: 9958218 | None |
+| 2015 day 05 | Migrated | Part 1: 255. Part 2: 55 | None |
 | 2025 day 10 | Migrated | Part 1: 578 (both approaches). Part 1 example: 7 (both approaches). Part 2 example: 33. Part 2: 20709 | Solver sentinel changed from `float('inf')` to `sys.maxsize`; `pulp.value(variable)` replaced with `variable.value()` and a `None` check added; unused variable removed; `sys` imported in the header cell |
