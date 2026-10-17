@@ -60,4 +60,5 @@ Any other change to the solution code must be recorded in the log entry for that
 | --- | --- | --- | --- |
 | 2015 day 01 | Migrated | 232, 1783 | None |
 | 2015 day 02 | Migrated | Part 1: 1588178. Part 2: 3783758 | Part 2 function renamed from `exercise_2_1_find_total_feet_of_ribbon` to `exercise_2_2_find_total_feet_of_ribbon` (the source name had `2_1`). |
+| 2015 day 03 | Migrated | Part 1: 2565. Part 2: 2639 | None |
 | 2025 day 10 | Migrated | Part 1: 578 (both approaches). Part 1 example: 7 (both approaches). Part 2 example: 33. Part 2: 20709 | Solver sentinel changed from `float('inf')` to `sys.maxsize`; `pulp.value(variable)` replaced with `variable.value()` and a `None` check added; unused variable removed; `sys` imported in the header cell |
