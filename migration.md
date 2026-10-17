@@ -41,6 +41,7 @@ Leave the solution code as it is. The exception is formatting: running `ruff for
 
 ## Gotchas
 
+- Cell functions are always named `_`, for example `def _(mo):`. Never give a cell function a name with an underscore prefix, such as `def _exercise_8_1_...(mo):`. Helper functions defined inside a cell can have a leading underscore when they are private, like `_get_wire_value`.
 - Marimo rejects the same name defined in two cells (`MultipleDefinitionError`). Put shared imports in the header imports cell and pass them as parameters to the cells that need them.
 - Running the file as a script is the test. The asserts check the examples and the real answers. A failing assert means the migration changed something.
 - After any change to `pyproject.toml`, run `uv sync`.
@@ -66,4 +67,7 @@ Leave the solution code as it is. The exception is formatting: running `ruff for
 | 2015 day 06 | Migrated | Part 1: 377891. Part 2: 14110788 | Both solvers got an `else` branch that raises `ValueError` for instructions that are neither 4 nor 5 parts, so pyright can tell `action` is always set. Malformed input now fails with a clear error instead of a `NameError`. Added the `Point` namedtuple helper cell and `numpy` as a dependency. |
 | 2015 day 07 | Migrated | Part 1: 956. Part 2: 40149. Example asserts the full wire dict | `exercise_7_1_find_signal_value` return annotation changed from `dict[str, int]` to `dict[str, int \| None]` to match the dict it builds, so pyright and ty pass. The example's `print` became an assert on the expected dict. |
 | 2015 day 08 | Migrated | Part 1: 1350. Part 2: 2085 | None |
+| 2015 day 09 | Migrated | Part 1: 207. Part 2: 804 | None |
+| 2015 day 10 | Migrated | Part 1: 252594 (length after 40 iterations). Part 2: 3579328 (length after 50 iterations) | None |
+| 2015 day 11 | Unsolved (migrated as-is) | None. Part 2 not written | Migrated as the source has it. The solver never returns a value and still prints each step, so the call cell asserts `next_password is None` as a placeholder. The solver's return annotation changed from `str` to `None` to match what it does, so pyright and ty pass. Revert to `-> str` and assert the real password once the solver is finished. |
 | 2025 day 10 | Migrated | Part 1: 578 (both approaches). Part 1 example: 7 (both approaches). Part 2 example: 33. Part 2: 20709 | Solver sentinel changed from `float('inf')` to `sys.maxsize`; `pulp.value(variable)` replaced with `variable.value()` and a `None` check added; unused variable removed; `sys` imported in the header cell |

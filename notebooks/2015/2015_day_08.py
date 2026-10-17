@@ -46,7 +46,7 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _exercise_8_1_special_character_analysis(mo):
+def _(mo):
     mo.md(r"""
     Space on the sleigh is limited this year, and so Santa will be bringing his list as a digital copy. He needs to know how much space it will take up when stored.
 
