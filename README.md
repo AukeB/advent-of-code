@@ -10,7 +10,6 @@ Solutions to the [Advent of Code](https://adventofcode.com) puzzles, written as 
 
 ```
 src/aoc/                shared helper code
-assets/                 README images
 notebooks/<year>/       one marimo notebook per puzzle day
 data/<year>/            puzzle inputs (not tracked in git)
 ```
