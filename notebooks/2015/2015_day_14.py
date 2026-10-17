@@ -23,6 +23,7 @@ def _(mo):
 @app.cell
 def _():
     import base64
+    import warnings
 
     import marimo as mo
     import plotly.graph_objects as go
@@ -30,7 +31,7 @@ def _():
 
     from aoc.utils import read_data
 
-    return base64, go, mo, px, read_data
+    return base64, go, mo, px, read_data, warnings
 
 
 @app.cell(hide_code=True)
@@ -240,16 +241,21 @@ def _(exercise_14_1_find_fastest_reinder, read_data):
 
 
 @app.cell
-def _(exercise_14_plot_reindeer_distances, reindeers_14_1):
+def _(exercise_14_plot_reindeer_distances, mo, reindeers_14_1):
     figure_14_1 = exercise_14_plot_reindeer_distances(reindeers=reindeers_14_1)
 
-    figure_14_1  # pyright: ignore[reportUnusedExpression]
+    mo.accordion({"Interactive plot": figure_14_1})  # pyright: ignore[reportUnusedExpression]
     return (figure_14_1,)
 
 
 @app.cell
-def _(base64, figure_14_1, mo):
-    encoded_figure_14_1 = base64.b64encode(figure_14_1.to_image(format="png")).decode()
+def _(base64, figure_14_1, mo, warnings):
+    # Kaleido 0.2.1 (pinned, as kaleido 1.x needs Chrome) raises a deprecation warning here.
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", DeprecationWarning)
+        figure_png_1 = figure_14_1.to_image(format="png")
+
+    encoded_figure_14_1 = base64.b64encode(figure_png_1).decode()
 
     mo.md(f"![Reindeer distances](data:image/png;base64,{encoded_figure_14_1})")  # pyright: ignore[reportUnusedExpression]
 
@@ -378,16 +384,21 @@ def _(exercise_14_2_find_fastest_reindeer, reindeer_descriptions: list[str]):
 
 
 @app.cell
-def _(exercise_14_plot_reindeer_distances, reindeers_14_2):
+def _(exercise_14_plot_reindeer_distances, mo, reindeers_14_2):
     figure_14_2 = exercise_14_plot_reindeer_distances(reindeers=reindeers_14_2)
 
-    figure_14_2  # pyright: ignore[reportUnusedExpression]
+    mo.accordion({"Interactive plot": figure_14_2})  # pyright: ignore[reportUnusedExpression]
     return (figure_14_2,)
 
 
 @app.cell
-def _(base64, figure_14_2, mo):
-    encoded_figure_14_2 = base64.b64encode(figure_14_2.to_image(format="png")).decode()
+def _(base64, figure_14_2, mo, warnings):
+    # Kaleido 0.2.1 (pinned, as kaleido 1.x needs Chrome) raises a deprecation warning here.
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", DeprecationWarning)
+        figure_png_2 = figure_14_2.to_image(format="png")
+
+    encoded_figure_14_2 = base64.b64encode(figure_png_2).decode()
 
     mo.md(f"![Reindeer distances](data:image/png;base64,{encoded_figure_14_2})")  # pyright: ignore[reportUnusedExpression]
 
