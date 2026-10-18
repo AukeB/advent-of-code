@@ -11,6 +11,7 @@ requires-python = ">=3.12"
 dependencies = [
     "kaleido==0.2.1",
     "marimo>=0.18.4",
+    "nbformat>=5.11.1",
     "numpy>=2.3.5,<3",
     "plotly>=6.5.0,<7",
     "pulp>=3.3.0,<4",
@@ -40,7 +41,7 @@ extend-exclude = ["*.ipynb", "notebooks/template.py"]
 force-exclude = true
 
 [tool.deptry.per_rule_ignores]
-DEP002 = ["kaleido"]
+DEP002 = ["kaleido", "nbformat"]
 
 [tool.pyright]
 extraPaths = ["src"]
