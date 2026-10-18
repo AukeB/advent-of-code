@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "advent-of-code"
 version = "0.1.0"
@@ -37,3 +41,12 @@ force-exclude = true
 
 [tool.deptry.per_rule_ignores]
 DEP002 = ["kaleido"]
+
+[tool.pyright]
+extraPaths = ["src"]
+
+[tool.ty.environment]
+extra-paths = ["src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aoc"]
