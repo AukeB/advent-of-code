@@ -8,6 +8,8 @@ app = marimo.App(width="medium")
 def _(mo):
     mo.md(r"""
     # Advent of Code {year} - Day {day}
+
+    https://adventofcode.com/{year}/day/{day}
     """)
     return
 
@@ -33,22 +35,6 @@ def _():
 def _(mo):
     mo.md(r"""
     ## Day {day} - {day_description}
-    """)
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ### Part 1 - Instructions
-    """)
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
- 
     """)
     return
 
@@ -82,22 +68,6 @@ app._unparsable_cell(
     """,
     name="_"
 )
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ### Part 2 - Instructions
-    """)
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
- 
-    """)
-    return
 
 
 @app.cell(hide_code=True)
