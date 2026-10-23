@@ -230,16 +230,19 @@ def _(go):
             for container_combination in all_container_combinations
             if container_combination.fits_target
         )
+
         not_fitting_counts = Counter(
             container_combination.size
             for container_combination in all_container_combinations
             if not container_combination.fits_target
         )
+
         container_counts = list(
             range(1, max(c.size for c in all_container_combinations) + 1)
         )
 
         figure = go.Figure()
+
         figure.add_trace(
             go.Bar(
                 x=container_counts,
@@ -248,6 +251,7 @@ def _(go):
                 marker={"color": "#2a9d8f"},
             )
         )
+
         figure.add_trace(
             go.Bar(
                 x=container_counts,
@@ -312,10 +316,12 @@ def _(go, px):
         ranked_indices = sorted(
             capacity_by_index, key=lambda index: (capacity_by_index[index], index)
         )
+
         gradient_positions = [
             rank / max(len(ranked_indices) - 1, 1)
             for rank in range(len(ranked_indices))
         ]
+
         gradient_colors = px.colors.sample_colorscale("Turbo", gradient_positions)
         color_by_index = dict(zip(ranked_indices, gradient_colors))
 
@@ -325,6 +331,7 @@ def _(go, px):
                 for container_combination in fitting_combinations
             }
         )
+
         if len(fitting_sizes) == 1:
             title = (
                 f"{len(fitting_combinations)} combinations of {fitting_sizes[0]} "
