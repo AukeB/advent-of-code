@@ -26,12 +26,30 @@ ty:
 	uv run ty check $(PROJECT_NAME)
 	@echo "🔍 Successfully executed ty."
 
-# Export every marimo notebook to a Jupyter notebook next to it, skipping notebooks that already have one
+# Notebooks excluded from ipynb export, one entry per file
+IPYNB_SKIP = $(addprefix notebooks/2026/, \
+	2026_day_01.py \
+	2026_day_02.py \
+	2026_day_03.py \
+	2026_day_04.py \
+	2026_day_05.py \
+	2026_day_06.py \
+	2026_day_07.py \
+	2026_day_08.py \
+	2026_day_09.py \
+	2026_day_10.py \
+	2026_day_11.py \
+	2026_day_12.py \
+)
+
+# Export every marimo notebook to a Jupyter notebook next to it, skipping notebooks that already have one or are excluded
 ipynb:
 	for nb in notebooks/*/*.py; do \
 		out="$${nb%.py}.ipynb"; \
 		if [ -e "$$out" ]; then \
 			:; \
+		elif echo " $(IPYNB_SKIP) " | grep -qF " $$nb "; then \
+			echo "Skipping $$nb (excluded)"; \
 		else \
 			echo "Exporting $$nb to $$out"; \
 			uv run marimo export ipynb "$$nb" -o "$$out" --include-outputs --sort top-down; \
